@@ -1,0 +1,29 @@
+{
+  "name": "budget-tracker",
+  "version": "1.0.0",
+  "description": "web app to track your expenses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon --experimental-modules --es-module-specifier-resolution=node server/index.js",
+    "client": "cd client && npm run start",
+    "iserver": "npm install",
+    "iclient": "cd client && npm install",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "iall": "concurrently \"npm run iserver\" \"npm run iclient\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aish2002/budget-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aish2002/budget-tracker/issues"
+  },
+  "homepage": "https://github.com/aish2002/budget-tracker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
