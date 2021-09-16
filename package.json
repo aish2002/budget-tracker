@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "web app to track your expenses",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "server": "nodemon --experimental-modules --es-module-specifier-resolution=node server/index.js",
     "client": "cd client && npm run start",
