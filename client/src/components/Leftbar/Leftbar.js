@@ -7,10 +7,7 @@ const Leftbar = () => {
     <Navbar collapseOnSelect className="p-0 " expand="md">
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav
-          
-          className="flex-column min-vh-100 sidebar "
-        >
+        <Nav className="flex-column min-vh-100 sidebar ">
           <Nav.Item>
             <Nav.Link href="/dashboard">Dashboard</Nav.Link>
           </Nav.Item>

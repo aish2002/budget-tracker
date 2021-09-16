@@ -6,11 +6,11 @@ import { BrowserRouter, Route } from "react-router-dom";
 function Home() {
   return (
     <div>
-      <Row>
-        <Col lg={3} className="pr-0">
+      <Row className="mr-0"  >
+        <Col lg={3} md={4} className="pr-0">
           <Leftbar />
         </Col>
-        <Col>
+        <Col >
           <BrowserRouter>
             <Route path="/dashboard">Dashboard</Route>
           </BrowserRouter>
