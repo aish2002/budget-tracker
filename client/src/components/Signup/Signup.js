@@ -13,7 +13,10 @@ const SignUp = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
     if (user.password === user.repassword) {
-      axios.post("/api/register",user).then((res) => console.log(res)).catch(err => console.log(err));
+      axios
+        .post("/api/register", user)
+        .then((res) => console.log(res.data.token))
+        .catch((err) => console.log(err));
     }
   };
 

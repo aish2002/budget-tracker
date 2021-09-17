@@ -1,49 +1,65 @@
-import React,{useState} from "react";
-import { Row,Form,Button, Col } from "react-bootstrap";
-import axios from 'axios';
+import React, { useState } from "react";
+import { Row, Form, Button, Col } from "react-bootstrap";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Signin = () => {
   const [user, setUser] = useState({
-    email: '',
-    password: ''
-  })
-  const [valid, setValid] = useState(true)
+    email: "",
+    password: "",
+  });
+  const [valid, setValid] = useState(true);
 
   const handleSignIn = (e) => {
+    console.log(user)
     e.preventDefault();
-    axios.post('/api/login').then(res => console.log(res))
-  }
+    axios
+      .post("/api/login", user)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
 
-  const handleChange = (e) => setUser({
-    ...user,
-    [e.target.name]: e.target.value
-  })
+  const handleChange = (e) =>
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
 
   return (
     <Row className="min-vh-100 justify-content-center align-items-center login-signup">
-        <Col className="px-4">
+      <Col className="px-4">
         <h2>Welcome back</h2>
-        <span>New Here? <a href="/signup">Create New Account</a></span>
-        
+        <span>
+          New Here? <a href="/signup">Create New Account</a>
+        </span>
+
         <Form className="mt-4" onSubmit={handleSignIn}>
-            <Form.Control  type="email" placeholder="Email" onChange={handleChange}  required/>
-            <br/>
-            <Form.Control  type="password" placeholder="Password" onChange={handleChange} required/>
-            <div className="text-right">
+          <Form.Control
+            type="email"
+            placeholder="Email"
+            name="email"
+            onChange={handleChange}
+            required
+          />
+          <br />
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={handleChange}
+            required
+          />
+          <div className="text-right">
             <Link to="/reset">Forgot Password ?</Link>
-            </div>
-            {!valid && <Form.Text >
-              Invalid Credentials
-            </Form.Text>}
-            <br/>
-            <Button variant="primary" type="submit" block>
-                Sign In
-            </Button>
+          </div>
+          {!valid && <Form.Text>Invalid Credentials</Form.Text>}
+          <br />
+          <Button variant="primary" type="submit" block>
+            Sign In
+          </Button>
         </Form>
-        </Col>
-        <Col>
-        </Col>
+      </Col>
+      <Col></Col>
     </Row>
   );
 };
