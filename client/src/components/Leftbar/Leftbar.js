@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import {  ListGroup,Navbar,Nav,NavDropdown,NavItem,NavLink,} from "react-bootstrap";
+import React from "react";
+import {  ListGroup,Navbar,Nav} from "react-bootstrap";
 import "./Leftbar.css";
 
 const Leftbar = () => {
@@ -17,6 +17,9 @@ const Leftbar = () => {
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="/monthly">Monthly Status</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/setup">Set Monthly Budget</Nav.Link>
           </Nav.Item>
           <Nav.Item className='pt-2'> CATEGORIES
           <ListGroup defaultActiveKey="#link1" >
