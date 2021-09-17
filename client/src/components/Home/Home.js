@@ -1,21 +1,16 @@
 import React,{useState} from "react";
 import { Container } from "react-bootstrap";
-import Switch from "react-bootstrap/esm/Switch";
 import { BrowserRouter,Route,Redirect } from "react-router-dom";
-//import axios from "axios";
-import {Signin,SignUp} from "../Auth/Auth";
+import SignUp from "../Signup/Signup";
+import Signin from "../Signin/Signin";
+import Reset from "../Reset/Reset";
 
 function Home() {
-  //testing server
-  // useEffect(() => {
-  //   axios.get('/api').then(res => console.log(res))
-  // }, [])
   const [authenticated, setAuthenticated] = useState(false)
 
     return (
       <BrowserRouter>
         <Container >
-          <Switch>
           <Route exact path='/' render={() => {
               return (
                   authenticated ?
@@ -23,9 +18,9 @@ function Home() {
                   <Redirect to="/signin" /> 
               )
           }}/>
-          <Route path='/signin' component={Signin}/>
+          <Route path='/signin' component={Signin} setAuthenticated={setAuthenticated}/>
           <Route path='/signup' component={SignUp}/>
-          </Switch>
+          <Route path='/reset' component={Reset}/>
         </Container>
       </BrowserRouter>
     );

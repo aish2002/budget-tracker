@@ -4,6 +4,7 @@ dotenv.config();
 import express from 'express';
 import { login } from './controllers/login';
 import { register } from './controllers/register';
+import {reset} from './controllers/reset';
 import {connect} from './config/database';
 connect();
 const app = express();
@@ -15,8 +16,9 @@ app.get('/api',(req,res) => {
     res.status(200).send('API up');
 })
 
-app.get('/login',login);
-app.get('/register',register);
+app.post('/api/login',login);
+app.post('/api/register',register);
+app.post('/api/reset',reset);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, (err) => {
