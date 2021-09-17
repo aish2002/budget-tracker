@@ -6,6 +6,7 @@ import Signin from "../Signin/Signin";
 import Reset from "../Reset/Reset";
 
 function Home() {
+  //not working check
   const [authenticated, setAuthenticated] = useState(false)
 
     return (
