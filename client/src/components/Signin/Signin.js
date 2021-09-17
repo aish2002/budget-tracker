@@ -3,19 +3,27 @@ import { Row, Form, Button, Col } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Signin = () => {
+const Signin = ({setAuthenticated}) => {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-  const [valid, setValid] = useState(true);
+  
+  const [msg, setMsg] = useState(true);
 
   const handleSignIn = (e) => {
-    console.log(user)
     e.preventDefault();
     axios
       .post("/api/login", user)
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res)
+        if(res.status === 201){
+          setAuthenticated(true);
+          window.location = '/dashboard';
+        }else{
+          setMsg(res.data)
+        }
+      })
       .catch((err) => console.log(err));
   };
 
@@ -52,7 +60,7 @@ const Signin = () => {
           <div className="text-right">
             <Link to="/reset">Forgot Password ?</Link>
           </div>
-          {!valid && <Form.Text>Invalid Credentials</Form.Text>}
+          <Form.Text>{msg}</Form.Text>
           <br />
           <Button variant="primary" type="submit" block>
             Sign In

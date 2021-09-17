@@ -6,8 +6,7 @@ export const login = async (req,res) => {
     try{
         const {email,password} = req.body;
         const user = await User.findOne({email}).exec();
-        if(user && bcrypt.compare(password,user.password)){
-            
+        if(user && await bcrypt.compare(password,user.password)){
             const token = jwt.sign(
                 {user: user._id,email},
                 process.env.TOKEN_KEY,
@@ -16,9 +15,9 @@ export const login = async (req,res) => {
                 }
             )
             user.token = token;
-            res.status(200).json(user);
+            res.status(201).json(user);
         }else{
-            res.status(400).send('invalid credentials');
+            res.status(200).send('invalid credentials');
         }
     }catch(err){
         console.log(err)

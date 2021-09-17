@@ -6,7 +6,6 @@ export const register = async (req,res) => {
     try{
         const {name,email,password,repassword} = req.body;
         const olduser = await User.findOne({email}).exec();
-        console.log(olduser)
         if(olduser){
             res.status(200).send('User already exists.Please Login');
         } else{

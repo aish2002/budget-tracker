@@ -2,20 +2,30 @@ import React, { useState } from "react";
 import { Row, Form, Button, Col } from "react-bootstrap";
 import axios from "axios";
 
-const SignUp = () => {
+const SignUp = ({setAuthenticated}) => {
   const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",
     repassword: "",
   });
+  const [msg, setMsg] = useState(null)
 
   const handleSignUp = (e) => {
     e.preventDefault();
     if (user.password === user.repassword) {
+      setMsg(null)
       axios
         .post("/api/register", user)
-        .then((res) => console.log(res.data.token))
+        .then((res) => {
+          if(res.status === 200){
+            setMsg(res.data)
+          }else{
+            console.log('created');
+            setAuthenticated(true)
+            window.location = '/dashboard';
+          }
+        })
         .catch((err) => console.log(err));
     }
   };
@@ -67,7 +77,8 @@ const SignUp = () => {
             user.repassword.length > 1 && (
               <Form.Text>Password does not match</Form.Text>
             )}
-          <br />
+            <Form.Text>{msg}</Form.Text>
+          <br/>
           <Row className="justify-content-between">
             <Col>
               <Button variant="primary" style={{ width: "100%" }} type="submit">

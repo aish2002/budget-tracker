@@ -18,8 +18,12 @@ function Home() {
                   <Redirect to="/signin" /> 
               )
           }}/>
-          <Route path='/signin' component={Signin} setAuthenticated={setAuthenticated}/>
-          <Route path='/signup' component={SignUp}/>
+          <Route path='/signin' >
+            <Signin setAuthenticated={setAuthenticated}/>
+          </Route>
+          <Route path='/signup' >
+            <SignUp setAuthenticated={setAuthenticated}/>
+          </Route>
           <Route path='/reset' component={Reset}/>
         </Container>
       </BrowserRouter>
