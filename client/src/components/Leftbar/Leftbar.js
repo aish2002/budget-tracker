@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import {  ListGroup,Navbar,Nav,NavDropdown,NavItem,NavLink,} from "react-bootstrap";
+import React from "react";
+import {  ListGroup,Navbar,Nav} from "react-bootstrap";
 import "./Leftbar.css";
 
 const Leftbar = () => {
   return (
-    <Navbar collapseOnSelect className="p-0 " expand="md">
+    <Navbar collapseOnSelect className="p-0 m-0" expand="md">
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav
