@@ -7,7 +7,7 @@ function Dashboard() {
   return (
     <div>
       <Row>
-        <Col lg={3} className="pr-0">
+        <Col lg={3} className="px-0">
           
           <Leftbar />
         </Col>
