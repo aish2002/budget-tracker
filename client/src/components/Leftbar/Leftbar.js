@@ -13,13 +13,13 @@ const Leftbar = () => {
           </Nav.Item>
           
           <Nav.Item>
-            <Nav.Link href="/weekly">Weekly Status</Nav.Link>
+            <Nav.Link href="/dashboard/weekly">Weekly Status</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/monthly">Monthly Status</Nav.Link>
+            <Nav.Link href="/dashboard/monthly">Monthly Status</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/setup">Set Monthly Budget</Nav.Link>
+            <Nav.Link href="/dashboard/setup">Set Monthly Budget</Nav.Link>
           </Nav.Item>
           <Nav.Item className='pt-2'> CATEGORIES
           <ListGroup defaultActiveKey="#link1" >
@@ -34,8 +34,8 @@ const Leftbar = () => {
               "Rent",
               "Health",
               "Others"
-            ].map((text, index) => (
-              <ListGroup.Item className="pb-0 font_xs"action href="#link1">
+            ].map((text) => (
+              <ListGroup.Item className="pb-0 font_xs" action href="#link1" key={text}>
                 {text}
               </ListGroup.Item>
             ))}
