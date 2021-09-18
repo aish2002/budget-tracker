@@ -1,0 +1,20 @@
+.sidebar{
+    background-color: rgba(83, 36, 160, 0.644) !important;
+    padding-top : 70px ;  
+    width : 230px !important;  
+}
+.nav-item{
+    color: #fff !important;
+    font-size: 1.1rem;
+    padding-left: 15% !important ;
+}
+.nav-link{
+    color: #fff !important;
+    font-size: 1.1rem;
+    padding-left: 0% !important;
+}
+
+.list-group-item{
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
