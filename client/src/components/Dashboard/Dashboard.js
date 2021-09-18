@@ -1,7 +1,7 @@
-import { Button, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { React } from "react";
 import Leftbar from "../Leftbar/Leftbar";
-import { Switch, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function Dashboard() {
   return (

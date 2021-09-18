@@ -7,10 +7,7 @@ const Leftbar = () => {
     <Navbar collapseOnSelect className="p-0 m-0" expand="md">
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav
-          
-          className="flex-column min-vh-100 sidebar "
-        >
+        <Nav className="flex-column min-vh-100 sidebar ">
           <Nav.Item>
             <Nav.Link href="/dashboard">Dashboard</Nav.Link>
           </Nav.Item>
@@ -20,6 +17,9 @@ const Leftbar = () => {
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="/monthly">Monthly Status</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/setup">Set Monthly Budget</Nav.Link>
           </Nav.Item>
           <Nav.Item className='pt-2'> CATEGORIES
           <ListGroup defaultActiveKey="#link1" >

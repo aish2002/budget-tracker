@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React,{useState} from "react";
 import { Container } from "react-bootstrap";
 import { BrowserRouter,Route,Redirect } from "react-router-dom";
@@ -33,3 +34,5 @@ function Home() {
   }
   
   export default Home;
+=======
+>>>>>>> f9b0e8c08af7295a39125e91011d59972d927c5c
