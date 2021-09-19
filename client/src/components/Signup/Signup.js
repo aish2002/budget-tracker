@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Row, Form, Button, Col } from "react-bootstrap";
 import axios from "axios";
 
-const SignUp = ({setAuthenticated}) => {
+const SignUp = () => {
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -21,8 +21,7 @@ const SignUp = ({setAuthenticated}) => {
           if(res.status === 200){
             setMsg(res.data)
           }else{
-            console.log('created');
-            setAuthenticated(true)
+            console.log(res.data);
             window.location = '/dashboard';
           }
         })
