@@ -1,11 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import {  ListGroup,Navbar,Nav} from "react-bootstrap";
-import { UserContext } from "../../context";
 import "./Leftbar.css";
 
 const Leftbar = () => {
-  const {user,setUser} = useContext(UserContext);
-  console.log(user)
   return (
     <Navbar collapseOnSelect className="p-0 m-0" expand="md">
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />

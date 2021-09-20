@@ -1,11 +1,11 @@
-import React, { useState,useContext } from "react";
+import React, { useState } from "react";
 import { Row, Form, Button, Col } from "react-bootstrap";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { UserContext } from "../../context";
+import { Link,useHistory } from "react-router-dom";
 
 const Signin = () => {
-  const { setUser } = useContext(UserContext)
+  
+  const history = useHistory();
   
   const [credentials, setCredentials] = useState({
     email: "",
@@ -20,17 +20,8 @@ const Signin = () => {
       .post("/api/login", credentials)
       .then((res) => {
         if(res.status === 201){
-          setUser({
-            isAuthenticated: true,
-            id: res.data._id,
-            token: res.data.token
-          })
-          setUser({
-            id: 'dhfjdlsljsfj',
-            token: 'fhfhfhhfhf',
-            isAuthenticated: true
-          })
-          window.location = '/dashboard';
+          
+          history.push('/dashboard')
         }else{
           setMsg(res.data)
         }

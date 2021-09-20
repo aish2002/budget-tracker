@@ -2,8 +2,11 @@ import { Row, Col } from "react-bootstrap";
 import { React } from "react";
 import Leftbar from "../Leftbar/Leftbar";
 import { Route, Switch } from "react-router-dom";
+import { useUser } from "../hooks/useUser";
 
-function Dashboard() {
+const Dashboard = () => {
+  const { user } = useUser();
+  console.log(user)
   return (
     <div>
       <Row>

@@ -10,13 +10,31 @@ const getToken = (user,email) => jwt.sign(
     }
 )
 
+export const userdetails = (req,res) => {
+    if(req.session.isAuthorized)
+        res.status(200).send({
+            isAuthorized: req.session.isAuthorized,
+            id: req.session.userid,
+            token: req.session.token
+        })
+    else
+        res.status(200).send({
+            isAuthorized: false,
+            id: '',
+            token: ''
+        })
+}
+
 export const loginuser = async (req,res) => {
     try{
         const {email,password} = req.body;
         const user = await User.findOne({email}).exec();
         if(user && await bcrypt.compare(password,user.password)){
             user.token = getToken(user,email);
-            res.status(201).json(user);
+            req.session.userid = user._id
+            req.session.token = user.token
+            req.session.isAuthorized = true
+            res.status(201).json('logged in');
         }else{
             res.status(200).send('invalid credentials');
         }
@@ -39,7 +57,10 @@ export const registeruser = async (req,res) => {
                 password: encryptedPassword
             });
             user.token = getToken(user,email);
-            res.status(201).json(user)
+            req.session.userid = user._id
+            req.session.token = user.token
+            req.session.isAuthorized = true
+            res.status(201).json('signed in')
         }    
     }catch(err){
         console.log('err ->',err);

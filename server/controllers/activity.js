@@ -16,7 +16,7 @@ export const addactivity = async (req,res) => {
 
 export const getactivity = async (req,res) => {
     try{
-        console.log(req.query)
+        console.log(req.session)
     }catch(err){
         console.log(err)
     }
