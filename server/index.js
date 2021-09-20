@@ -27,7 +27,7 @@ app.post('/api/register',registeruser);
 app.post('/api/reset',reset);
 app.get('/api/user',userdetails);
 //app.use(verifyToken);
-app.post('/api/addexpense',addactivity);
+app.post('/api/addactivity',addactivity);
 app.get('/api/getactivity',getactivity);
 
 const PORT = process.env.PORT || 5000;

@@ -5,6 +5,7 @@ const activitySchema = new mongoose.Schema({
     topic: String,
     category: String,
     amount: Number,
+    status: String
 },{timestamps: true});
 
 export const Activity = mongoose.model('activities',activitySchema)

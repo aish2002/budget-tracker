@@ -10,10 +10,9 @@ export const useUser = () => {
 
   useEffect(() => {
     axios.get("/api/user").then((res) => {
-      console.log(res);
       setUser(res.data)
     });
   }, []);
 
-  return user;
+  return {user};
 };
