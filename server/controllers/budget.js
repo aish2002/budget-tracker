@@ -9,7 +9,7 @@ export const setbudget = (req, res) => {
         $set: {
           income: req.body.income,
           savings: req.body.savings,
-          budget: req.body.budget,
+          budget: req.body.income-req.body.savings,
         },
       },
       { new: true }
@@ -20,7 +20,7 @@ export const setbudget = (req, res) => {
           userid: req.body.userid,
           income: req.body.income,
           savings: req.body.savings,
-          budget: req.body.budget,
+          budget: req.body.income-req.body.savings,
         });
       }
     });

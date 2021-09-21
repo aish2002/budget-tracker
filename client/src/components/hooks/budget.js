@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import axios from 'axios';
 
-export function useBudget(id){
+export const useBudget=(id)=>{
     const [budgets, setBudgets] = useState({
         userid:id,
         income: 0.0,
@@ -29,6 +29,5 @@ export function useBudget(id){
         }
         getBudget();
       }, [id]);
-
-      return {budgets};
+      return budgets;
 }
