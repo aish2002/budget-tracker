@@ -10,8 +10,8 @@ export const verifyToken = (req,res,next) => {
     try{
         const decoded = jwt.verify(token, config.TOKEN_KEY);
         req.user = decoded;
+        next();
     }catch(err){
         res.status(401).send('Invalid token')
     }
-    return next();
 }

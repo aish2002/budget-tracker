@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
 import { BrowserRouter,Route,Redirect } from "react-router-dom";
 import SignUp from "../Signup/Signup";
@@ -7,24 +7,20 @@ import Reset from "../Reset/Reset";
 import Dashboard from "../Dashboard/Dashboard";
 
 function Home() {
-  //not working check
-  const [authenticated, setAuthenticated] = useState(false)
-
+  
     return (
       <BrowserRouter>
         <Container >
           <Route exact path='/' render={() => {
               return (
-                  authenticated ?
-                  <Redirect to="/dashboard" /> :
                   <Redirect to="/signin" /> 
               )
           }}/>
           <Route path='/signin' >
-            <Signin setAuthenticated={setAuthenticated}/>
+            <Signin />
           </Route>
           <Route path='/signup' >
-            <SignUp setAuthenticated={setAuthenticated}/>
+            <SignUp />
           </Route>
           <Route path='/reset' component={Reset}/>
         </Container>

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Row, Form, Button, Col } from "react-bootstrap";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 
-const Signin = ({setAuthenticated}) => {
-  const [user, setUser] = useState({
+const Signin = () => {
+  
+  const history = useHistory();
+  
+  const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
@@ -14,12 +17,11 @@ const Signin = ({setAuthenticated}) => {
   const handleSignIn = (e) => {
     e.preventDefault();
     axios
-      .post("/api/login", user)
+      .post("/api/login", credentials)
       .then((res) => {
-        console.log(res)
         if(res.status === 201){
-          setAuthenticated(true);
-          window.location = '/dashboard';
+          
+          history.push('/dashboard')
         }else{
           setMsg(res.data)
         }
@@ -28,8 +30,8 @@ const Signin = ({setAuthenticated}) => {
   };
 
   const handleChange = (e) =>
-    setUser({
-      ...user,
+    setCredentials({
+      ...credentials,
       [e.target.name]: e.target.value,
     });
 

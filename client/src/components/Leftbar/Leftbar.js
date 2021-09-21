@@ -1,5 +1,6 @@
 import React from "react";
 import {  ListGroup,Navbar,Nav} from "react-bootstrap";
+import { CATEGORIES } from "../util";
 import "./Leftbar.css";
 
 const Leftbar = () => {
@@ -23,18 +24,7 @@ const Leftbar = () => {
           </Nav.Item>
           <Nav.Item className='pt-2'> CATEGORIES
           <ListGroup defaultActiveKey="#link1" >
-            {[
-              "Transport",
-              "Food & Beverages",
-              "Clothes",
-              "Online Shopping",
-              "Grocery",
-              "Education",
-              "Bill Payments",
-              "Rent",
-              "Health",
-              "Others"
-            ].map((text) => (
+            {CATEGORIES.map((text) => (
               <ListGroup.Item className="pb-0 font_xs" action href="#link1" key={text}>
                 {text}
               </ListGroup.Item>
