@@ -13,14 +13,15 @@ const Dashboard = () => {
   return (
     <div>
       <Row className="mr-3">
-        <Col lg={3} className="pr-0">
+        <div  className="pr-0">
           <Leftbar />
-        </Col>
-        <Col>
+        </div>
+        <Col className="m-4">
             <Header/>
             
             <Switch>
               <Route exact path="/dashboard" />
+              
               {/* <Route path="/dashboard/weekly" /> */}
               <Route path="/dashboard/setup" component={SetBudget} /> 
                 
@@ -30,9 +31,10 @@ const Dashboard = () => {
               <Route path="/setup" component={}/> */}
             </Switch>
         </Col>
-        <Col>
-        <Rightbar/>
-        </Col>
+        <div>
+        <Route exact path="/dashboard" component={Rightbar} />
+        
+        </div>
       </Row>
     </div>
   );

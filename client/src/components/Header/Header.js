@@ -7,8 +7,6 @@ import { CATEGORIES } from "../util";
 
 const Header = () => {
     const {user} = useUser()
-    const {activity} = useActivity()
-    //console.log(activity)
     const [expense, setExpense] = useState({
         topic: '',
         amount: 0,
@@ -38,7 +36,7 @@ const Header = () => {
     }
 
     return ( 
-        <Container>
+        <Container >
             <h1 className="d-flex justify-content-between">
                 <span>Section Name</span>
                 <span>
@@ -72,9 +70,7 @@ const Header = () => {
                     <Button type="submit" block>Add</Button>
                 </Col>
             </Form>
-            <div>
-                {activity.map(element => <li>{element.topic}</li>)}
-            </div>
+            
         </Container>
     )
 }
