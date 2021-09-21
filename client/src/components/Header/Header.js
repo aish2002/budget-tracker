@@ -2,10 +2,13 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Col, InputGroup,FormControl, Container } from "react-bootstrap";
 import { useUser } from "../hooks/useUser";
+import { useActivity } from "../hooks/useActivity";
 import { CATEGORIES } from "../util";
 
 const Header = () => {
     const {user} = useUser()
+    const {activity} = useActivity()
+    console.log(activity)
     const [expense, setExpense] = useState({
         topic: '',
         amount: 0,
@@ -69,6 +72,9 @@ const Header = () => {
                     <Button type="submit" block>Add</Button>
                 </Col>
             </Form>
+            <div>
+                {activity.map(element => <li>{element.topic}</li>)}
+            </div>
         </Container>
     )
 }
