@@ -2,11 +2,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 //import path from 'path';
 import express from 'express';
-import { login } from './controllers/login';
-import { register } from './controllers/register';
-import {reset} from './controllers/reset';
+import { loginuser,registeruser,reset } from './controllers/user';
 import { verifyToken } from './middleware/auth';
 import {connect} from './config/database';
+import { addactivity, getactivity } from './controllers/activity';
+import {setbudget,getbudget} from './controllers/budget';
 connect();
 const app = express();
 //for production
@@ -17,11 +17,14 @@ app.get('/api',(req,res) => {
     res.status(200).send('API up');
 })
 
-app.post('/api/login',login);
-app.post('/api/register',register);
+app.post('/api/login',loginuser);
+app.post('/api/register',registeruser);
 app.post('/api/reset',reset);
-app.use(verifyToken);
-
+// app.use(verifyToken);
+app.post('/api/addexpense',addactivity);
+app.get('/api/getactivity',getactivity);
+app.post('/api/setbudget',setbudget);
+app.get('/api/getbudget',getbudget);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, (err) => {
     console.log(`Server listening on ${PORT}`);

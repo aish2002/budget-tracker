@@ -1,12 +1,11 @@
-// import mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
-// const budgetSchema = new mongoose.Schema({
-//   name: { type: String, default: null },
-//   email: { type: String, unique: true },
-//   income : Double,
-//   savings : Double,
-//   budget : Double,
+const budgetSchema = new mongoose.Schema({
+  userid: String,
+  income : Number,
+  savings : Number,
+  budget : Number,
   
-// });
+});
 
-// export const Budget =  mongoose.model('budget',budgetSchema);
+export const Budget =  mongoose.model('budgets',budgetSchema);
