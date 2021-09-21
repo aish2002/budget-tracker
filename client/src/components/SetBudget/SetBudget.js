@@ -5,11 +5,9 @@ import { useBudget } from "../../hooks/budget";
 
 function SetBudget() {
   const id ="614473139a35ae5e56466c60"
-  const {data} = useBudget(id);
+  const data = useBudget(id);
   
-  const [budgets,setBudgets]=useState({
-    ...data
-  })
+  const [budgets,setBudgets]=useState(data)
   const [message, setMessage] = useState("");
   const handleChange = (e) => {
     console.log(data)

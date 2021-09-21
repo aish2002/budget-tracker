@@ -4,8 +4,7 @@ import Leftbar from "../Leftbar/Leftbar";
 import { Route, Switch } from "react-router-dom";
 import SetBudget from "../SetBudget/SetBudget";
 function Dashboard() {
-  // const user=  useContext(UserContext)
-  
+    
   return (
     <div>
       <Row>
@@ -16,9 +15,8 @@ function Dashboard() {
             <Switch>
               <Route exact path="/dashboard" >dash</Route>
               <Route path="/dashboard/weekly" >weekyl</Route>
-              <Route path="/dashboard/setup" > 
-                <SetBudget />
-              </Route>
+              <Route path="/dashboard/setup" component={SetBudget} /> 
+                
               {/* <Route path="/weekly" component={}/>
               <Route path="/monthly" component={}/>
               <Route path="/setup" component={}/> */}
