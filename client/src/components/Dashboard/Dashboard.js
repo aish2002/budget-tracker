@@ -1,6 +1,7 @@
 import { Row, Col } from "react-bootstrap";
 import { React} from "react";
 import Leftbar from "../Leftbar/Leftbar";
+import Rightbar from "../Rightbar/Rightbar";
 import { Route, Switch } from "react-router-dom";
 import SetBudget from "../SetBudget/SetBudget";
 import { useUser } from "../hooks/useUser";
@@ -28,6 +29,9 @@ const Dashboard = () => {
               <Route path="/monthly" component={}/>
               <Route path="/setup" component={}/> */}
             </Switch>
+        </Col>
+        <Col>
+        <Rightbar/>
         </Col>
       </Row>
     </div>
