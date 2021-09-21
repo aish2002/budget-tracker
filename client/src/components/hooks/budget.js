@@ -1,7 +1,9 @@
-import React,{useEffect,useState} from 'react';
+import {useEffect,useState} from 'react';
 import axios from 'axios';
+import {useUser} from './useUser'
 
 export const useBudget=(id)=>{
+  const {user} = useUser();
     const [budgets, setBudgets] = useState({
         userid:id,
         income: 0.0,

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 export const useUser = () => {
   const [user, setUser] = useState({
-    isAuthenticated: false,
+    isAuthorized: false,
     id: "",
     token: "",
   });
