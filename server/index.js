@@ -6,6 +6,7 @@ import { loginuser,registeruser,reset, userdetails } from './controllers/user';
 import { verifyToken } from './middleware/auth';
 import {connect} from './config/database';
 import { addactivity, getactivity } from './controllers/activity';
+import {setbudget,getbudget} from './controllers/budget';
 import session from 'express-session';
 
 connect();
@@ -29,7 +30,8 @@ app.get('/api/user',userdetails);
 //app.use(verifyToken);
 app.post('/api/addactivity',addactivity);
 app.get('/api/getactivity',getactivity);
-
+app.post('/api/setbudget',setbudget);
+app.get('/api/getbudget',getbudget);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, (err) => {
     console.log(`Server listening on ${PORT}`);
