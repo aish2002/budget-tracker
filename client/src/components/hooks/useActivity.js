@@ -7,13 +7,14 @@ export const useActivity = () => {
   const [activity, setActivity] = useState([]);
 
   useEffect(() => {
-    if(user.isAuthenticated){
-      axios.get("/api/getactivity")
-      .then((res) => {
-        console.log(res.data);
-        setActivity(res.data);
-      });
-    }
+    axios.get("/api/getactivity",{
+      params: {
+        user
+      }
+    })
+    .then((res) => {
+      setActivity(res.data);
+    });
   }, [user]);
 
   return { activity };

@@ -4,8 +4,7 @@ export const addactivity = async (req,res) => {
     try{
         const expense = req.body.expense;
         const user = req.body.user;
-        
-        if(user.isAuthenticated){
+        if(user.isAuthorized){
             await Activity.create({
                 userid: user.id,
                 topic: expense.topic,
@@ -25,8 +24,8 @@ export const addactivity = async (req,res) => {
 
 export const getactivity = async (req,res) => {
     try{
-        console.log(req.query)
-        const activities = await Activity.find()
+        const user = JSON.parse(req.query.user);
+        const activities = await Activity.find({userid: user.id})
         res.status(200).json(activities)
     }catch(err){
         console.log(err)

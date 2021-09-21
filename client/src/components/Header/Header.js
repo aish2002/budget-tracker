@@ -8,7 +8,7 @@ import { CATEGORIES } from "../util";
 const Header = () => {
     const {user} = useUser()
     const {activity} = useActivity()
-    console.log(activity)
+    //console.log(activity)
     const [expense, setExpense] = useState({
         topic: '',
         amount: 0,
@@ -47,7 +47,7 @@ const Header = () => {
             </h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
-                    <Form.Control placeholder="topic" name="topic" value={expense.topic} onChange={handleChange} required/>
+                    <Form.Control placeholder="topic" name="topic" value={expense.topic} onChange={handleChange}/>
                 </Form.Group>
                 <InputGroup className="mb-3">
                     <InputGroup.Prepend>
@@ -63,11 +63,11 @@ const Header = () => {
                     <Button variant={expense.status === '+' ? 'success' : 'secondary'} name="status" value="+" onClick={handleChange}>+</Button>
                     </InputGroup.Append>
                 </InputGroup>
-                {expense.status === '-' && <Form.Group controlId="Category">
+                <Form.Group controlId="Category">
                     <Form.Control as="select" name="category" onChange={handleChange} required>
                         {CATEGORIES.map(category => <option key={category}>{category}</option>)}
                     </Form.Control>
-                </Form.Group>}
+                </Form.Group>
                 <Col className="my-3">
                     <Button type="submit" block>Add</Button>
                 </Col>

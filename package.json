@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "server": "nodemon --experimental-modules --es-module-specifier-resolution=node server/index.js",
+    "server": "nodemon --experimental-modules --es-module-specifier-resolution=node server/index.js --ignore client",
     "client": "cd client && npm run start",
     "iserver": "npm install",
     "iclient": "cd client && npm install",
