@@ -6,6 +6,8 @@ import { Route, Switch } from "react-router-dom";
 import SetBudget from "../SetBudget/SetBudget";
 import { useUser } from "../hooks/useUser";
 import Header from "../Header/Header";
+import { Midsection } from "../Midsection/Midsection";
+
   // const user=  useContext(UserContext)
 const Dashboard = () => {
   const { user } = useUser();
@@ -17,10 +19,10 @@ const Dashboard = () => {
           <Leftbar />
         </div>
         <Col className="m-4">
-            <Header/>
+            
             
             <Switch>
-              <Route exact path="/dashboard" />
+              <Route exact path="/dashboard" component={Midsection}/>
               
               {/* <Route path="/dashboard/weekly" /> */}
               <Route path="/dashboard/setup" component={SetBudget} /> 
@@ -30,6 +32,7 @@ const Dashboard = () => {
               <Route path="/monthly" component={}/>
               <Route path="/setup" component={}/> */}
             </Switch>
+            <Header/>
         </Col>
         <div>
         <Route exact path="/dashboard" component={Rightbar} />

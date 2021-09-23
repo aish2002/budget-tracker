@@ -4,7 +4,7 @@ export const setbudget = (req, res) => {
   try {
       console.log(req.body)
     Budget.findOneAndUpdate(
-      { userId: req.body.userid },
+      { userid: req.body.userid },
       {
         $set: {
           income: req.body.income,
@@ -32,6 +32,7 @@ export const setbudget = (req, res) => {
 
 export const getbudget = async (req, res) => {
   try {
+    // console.log(req.query)
     const bg = await Budget.findOne({ userid: req.query.id }).exec();
     // console.log(bg)
     res.status(201).json(bg);

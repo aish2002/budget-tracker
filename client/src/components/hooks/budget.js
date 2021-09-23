@@ -2,10 +2,10 @@ import {useEffect,useState} from 'react';
 import axios from 'axios';
 import {useUser} from './useUser'
 
-export const useBudget=(id)=>{
+export const useBudget=()=>{
   const {user} = useUser();
     const [budgets, setBudgets] = useState({
-        userid:id,
+        userid:user.id,
         income: 0.0,
         savings: 0.0,
         budget: 0.0,
@@ -16,7 +16,7 @@ export const useBudget=(id)=>{
           axios
             .get("/api/getbudget", {
               params: {
-                id: id,
+                id: user.id,
               },
             })
             .then((res) => {
@@ -30,6 +30,7 @@ export const useBudget=(id)=>{
             });
         }
         getBudget();
-      }, [id]);
+      }, [user.id]);
+      console.log(budgets)
       return budgets;
 }
