@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card,Col } from 'react-bootstrap';
+import { Card,Col,Row } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import { useActivity } from '../../hooks/useActivity';
 import moment from "moment";
+import { ReactComponent as Sad} from '../../assets/sad.svg';
  
 const Category=() => {
     const { category } = useParams();
@@ -16,7 +17,14 @@ const Category=() => {
         <Col className="mt-3 ">
             <h1 className="mb-4">{category}</h1>
             {activity.length === 0 ?
-                <Col>No Activites</Col>
+                <span>
+                    <Row className="justify-content-center">   
+                        <Sad/>
+                    </Row>
+                    <Col className="text-center">
+                    <h5>There is no activity found.</h5>
+                    </Col>
+                </span>
             : activity.map(activity => 
                 <Card key={activity._id} className="mb-2">
                     <Card.Body className="px-3 py-2">
