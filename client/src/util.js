@@ -10,3 +10,4 @@ export const CATEGORIES = [
     "Health",
     "Others"
   ]
+
