@@ -3,7 +3,7 @@ dotenv.config();
 //import path from 'path';
 import express from 'express';
 import { loginuser,registeruser,reset, userdetails } from './controllers/user';
-import { verifyToken } from './middleware/auth';
+//import { verifyToken } from './middleware/auth';
 import {connect} from './config/database';
 import { addactivity, getactivity } from './controllers/activity';
 import {setbudget,getbudget} from './controllers/budget';

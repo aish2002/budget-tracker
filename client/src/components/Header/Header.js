@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Col, InputGroup,FormControl, Container} from "react-bootstrap";
-import { useUser } from "../hooks/useUser";
-import { CATEGORIES } from "../util";
+import { useUser } from "../../hooks/useUser";
+import { CATEGORIES } from "../../util";
 import { ReactComponent as Plus} from '../../assets/plus.svg'
 
 const Header = () => {
     const {user} = useUser()
+        
     const [show, setShow] = useState(false)
     const [expense, setExpense] = useState({
         topic: '',
@@ -39,7 +40,7 @@ const Header = () => {
     return ( 
         <Container >
             <h1 className="d-flex justify-content-between">
-                <span>Section Name</span>
+                <span>Dashboard</span>
                 <span >
                     <Plus onClick={() => setShow(!show)}/>
                 </span>

@@ -1,9 +1,9 @@
 import React from "react";
 import {  ListGroup,Navbar,Nav} from "react-bootstrap";
-import { CATEGORIES } from "../util";
+import { CATEGORIES } from "../../util";
 import "./Leftbar.css";
 
-const Leftbar = () => {
+const Leftbar = () => {  
   return (
     <Navbar collapseOnSelect className="p-0 m-0" expand="md">
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -14,7 +14,7 @@ const Leftbar = () => {
           </Nav.Item>
           
           <Nav.Item>
-            <Nav.Link href="/dashboard/weekly">Weekly Status</Nav.Link>
+            <Nav.Link href="/dashboard/weekly" >Weekly Status</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="/dashboard/monthly">Monthly Status</Nav.Link>
@@ -25,7 +25,7 @@ const Leftbar = () => {
           <Nav.Item className='pt-2'> CATEGORIES
           <ListGroup defaultActiveKey="#link1" >
             {CATEGORIES.map((text) => (
-              <ListGroup.Item className="pb-0 font_xs" action href="#link1" key={text}>
+              <ListGroup.Item className="pb-0 font_xs" action href={`/dashboard/category/${text}`} key={text}>
                 {text}
               </ListGroup.Item>
             ))}

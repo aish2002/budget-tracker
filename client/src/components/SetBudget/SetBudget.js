@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert, Card } from "react-bootstrap";
 import axios from "axios";
-import { useBudget } from "../hooks/budget";
+import { useBudget } from "../../hooks/budget";
 
 function SetBudget() {
   const id = "614473139a35ae5e56466c60";

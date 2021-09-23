@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import {Card, Row, Col ,Button,Container} from "react-bootstrap";
 import DonutChart from 'react-donut-chart';

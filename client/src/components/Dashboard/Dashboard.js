@@ -4,38 +4,36 @@ import Leftbar from "../Leftbar/Leftbar";
 import Rightbar from "../Rightbar/Rightbar";
 import { Route, Switch } from "react-router-dom";
 import SetBudget from "../SetBudget/SetBudget";
-import { useUser } from "../hooks/useUser";
+import { useUser } from "../../hooks/useUser";
 import Header from "../Header/Header";
-  // const user=  useContext(UserContext)
+import Category from "../Category/Category";
+  
 const Dashboard = () => {
   const { user } = useUser();
   console.log(user)
   return (
     <div>
+      
       <Row className="mr-3">
         <div  className="pr-0">
           <Leftbar />
         </div>
         <Col className="m-4">
             <Header/>
-            
             <Switch>
               <Route exact path="/dashboard" />
-              
-              {/* <Route path="/dashboard/weekly" /> */}
-              <Route path="/dashboard/setup" component={SetBudget} /> 
-                
-              
               {/* <Route path="/weekly" component={}/>
               <Route path="/monthly" component={}/>
               <Route path="/setup" component={}/> */}
+              <Route path="/dashboard/setup" component={SetBudget} /> 
+              <Route path="/dashboard/category/:category" component={Category} /> 
             </Switch>
         </Col>
         <div>
-        <Route exact path="/dashboard" component={Rightbar} />
-        
+          <Route exact path="/dashboard" component={Rightbar} />
         </div>
       </Row>
+     
     </div>
   );
 }

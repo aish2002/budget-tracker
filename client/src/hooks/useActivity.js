@@ -6,6 +6,8 @@ export const useActivity = () => {
   const { user } = useUser()
   const [activity, setActivity] = useState([]);
 
+  const getActivityByCategory = (category) => activity.filter(element => category === element.category)
+
   useEffect(() => {
     axios.get("/api/getactivity",{
       params: {
@@ -17,5 +19,5 @@ export const useActivity = () => {
     });
   }, [user]);
 
-  return { activity };
+  return { activity,getActivityByCategory };
 };
