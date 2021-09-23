@@ -7,13 +7,17 @@ import moment from "moment";
 const Category=() => {
     const { category } = useParams();
     const { getActivityByCategory } = useActivity();
-    
+    const activity = getActivityByCategory(category)
+
     const formatTime = (time) => 
         moment(time).format(`D MMM' YY, HH:mm A`)
 
     return (
         <Col className="mt-3 ">
-            {getActivityByCategory(category).map(activity => 
+            <h1 className="mb-4">{category}</h1>
+            {activity.length === 0 ?
+                <Col>No Activites</Col>
+            : activity.map(activity => 
                 <Card key={activity._id} className="mb-2">
                     <Card.Body className="px-3 py-2">
                         <Card.Title className="d-flex justify-content-between">

@@ -12,7 +12,9 @@ const Leftbar = () => {
           <Nav.Item>
             <Nav.Link href="/dashboard">Dashboard</Nav.Link>
           </Nav.Item>
-          
+          <Nav.Item>
+            <Nav.Link href="/dashboard/today">Today</Nav.Link>
+          </Nav.Item>
           <Nav.Item>
             <Nav.Link href="/dashboard/weekly" >Weekly Status</Nav.Link>
           </Nav.Item>

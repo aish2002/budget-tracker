@@ -7,6 +7,7 @@ import SetBudget from "../SetBudget/SetBudget";
 import { useUser } from "../../hooks/useUser";
 import Header from "../Header/Header";
 import Category from "../Category/Category";
+import Today from "../Today/Today";
   
 const Dashboard = () => {
   const { user } = useUser();
@@ -19,9 +20,9 @@ const Dashboard = () => {
           <Leftbar />
         </div>
         <Col className="m-4">
-            <Header/>
             <Switch>
-              <Route exact path="/dashboard" />
+              <Route exact path="/dashboard" component={Header}/>
+              <Route exact path="/dashboard/today" component={Today}/>
               {/* <Route path="/weekly" component={}/>
               <Route path="/monthly" component={}/>
               <Route path="/setup" component={}/> */}
