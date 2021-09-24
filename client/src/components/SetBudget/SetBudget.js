@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Button, Alert, Card } from "react-bootstrap";
 import axios from "axios";
-import { useBudget } from "../hooks/budget";
-import { useUser } from "../hooks/useUser";
+import { useBudget } from "../../hooks/budget";
+import { useUser } from "../../hooks/useUser";
 
 function SetBudget() {
   const {user} =useUser()

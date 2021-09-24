@@ -1,12 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Form, Col, InputGroup,FormControl, Container } from "react-bootstrap";
-import { useUser } from "../hooks/useUser";
-import { useActivity } from "../hooks/useActivity";
-import { CATEGORIES } from "../util";
+import { Button, Form, Col, InputGroup,FormControl, Container} from "react-bootstrap";
+import { useUser } from "../../hooks/useUser";
+import { CATEGORIES } from "../../util";
+import { ReactComponent as Plus} from '../../assets/plus.svg'
 
 const Header = () => {
     const {user} = useUser()
+        
+    const [show, setShow] = useState(false)
     const [expense, setExpense] = useState({
         topic: '',
         amount: 0,
@@ -38,12 +40,12 @@ const Header = () => {
     return ( 
         <Container >
             <h1 className="d-flex justify-content-between">
-                <span>Section Name</span>
-                <span>
-                    plus
+                <span>Dashboard</span>
+                <span >
+                    <Plus onClick={() => setShow(!show)}/>
                 </span>
             </h1>
-            <Form onSubmit={handleSubmit}>
+            {show && <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Control placeholder="topic" name="topic" value={expense.topic} onChange={handleChange}/>
                 </Form.Group>
@@ -69,8 +71,7 @@ const Header = () => {
                 <Col className="my-3">
                     <Button type="submit" block>Add</Button>
                 </Col>
-            </Form>
-            
+            </Form>}
         </Container>
     )
 }

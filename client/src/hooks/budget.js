@@ -20,7 +20,6 @@ export const useBudget=()=>{
               },
             })
             .then((res) => {
-              
               if (res.data) {
                 setBudgets(res.data);
               }
@@ -31,6 +30,5 @@ export const useBudget=()=>{
         }
         getBudget();
       }, [user.id]);
-      console.log(budgets)
       return budgets;
 }

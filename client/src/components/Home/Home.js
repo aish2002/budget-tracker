@@ -16,12 +16,8 @@ function Home() {
                   <Redirect to="/signin" /> 
               )
           }}/>
-          <Route path='/signin' >
-            <Signin />
-          </Route>
-          <Route path='/signup' >
-            <SignUp />
-          </Route>
+          <Route path='/signin' component={Signin} />
+          <Route path='/signup' component={SignUp} />
           <Route path='/reset' component={Reset}/>
         </Container>
         <Route path='/dashboard' component={Dashboard}/>

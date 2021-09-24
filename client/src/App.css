@@ -19,3 +19,6 @@ body{
 .font_xs{
     font-size: 16px !important;
 }
+svg{
+    max-height: 400px !important;
+}
