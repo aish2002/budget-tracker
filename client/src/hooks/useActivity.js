@@ -46,11 +46,10 @@ export const useActivity = () => {
     getActivityByTime(time).map(ele=>{       
        if(ele.status==='-')
          expense+=ele.amount
-    })
-    getActivityByTime(time).map(ele=>{       
-      if(ele.status==='+')
+      else
         income+=ele.amount
-   })
+    })
+    
     return {expense,income}
  }
 
