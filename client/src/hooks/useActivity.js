@@ -7,8 +7,9 @@ import { CATEGORIES } from '../util';
 export const useActivity = () => {
   const { user } = useUser();
   const [activity, setActivity] = useState([]);
-  
+
   const getActivityByCategory = (category) =>
+    category === 'all' ? activity : 
     activity.filter((element) => category === element.category);
 
   const getActivityByTime = (time) => 

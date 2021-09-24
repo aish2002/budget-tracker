@@ -34,26 +34,7 @@ const Today = () => {
       </CardGroup>
       <hr />
       <Summary/>
-      <hr/>
-      {activity.length === 0 ? (
-        <Col>No Activites Today</Col>
-      ) : (
-        activity.map((activity) => (
-          <Card key={activity._id} className="mb-2">
-            <Card.Body className="px-3 py-2">
-              <Card.Title className="d-flex justify-content-between">
-                <span>{activity.topic}</span>
-                <span>
-                  {activity.status} {activity.amount}
-                </span>
-              </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                {activity.category}
-              </Card.Subtitle>
-            </Card.Body>
-          </Card>
-        ))
-      )}
+      
     </Col>
   );
 };
