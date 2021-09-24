@@ -20,7 +20,6 @@ export const useBudget=(id)=>{
               },
             })
             .then((res) => {
-              
               if (res.data) {
                 setBudgets(res.data);
               }

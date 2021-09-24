@@ -1,21 +1,17 @@
 import React from "react";
 import { Card, Col, CardGroup } from "react-bootstrap";
 import { useActivity } from "../../hooks/useActivity";
-import { VictoryPie } from 'victory';
+import Summary from "../Summary";
 
 const Today = () => {
-  const { getActivityToday } = useActivity();
-  const activity = getActivityToday();
-
-  const sampleData=[
-    { x: "Cats", y: 35 },
-    { x: "Dogs", y: 40 },
-    { x: "Birds", y: 55 }
-  ]
+  const { getActivityByTime } = useActivity();
+  const activity = getActivityByTime('today');
 
   return (
     <Col className="mt-3 ">
-      <h1 className="mb-4">Today</h1>
+      <h1 className="mb-4 d-flex justify-content-between">
+        <span>Today</span>
+        </h1>
       <CardGroup className="text-center">
         <Card>
           <Card.Body>
@@ -37,11 +33,8 @@ const Today = () => {
         </Card>
       </CardGroup>
       <hr />
-      <VictoryPie
-        colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
-        data={sampleData}
-        />
-        <hr/>
+      <Summary/>
+      <hr/>
       {activity.length === 0 ? (
         <Col>No Activites Today</Col>
       ) : (

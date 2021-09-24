@@ -9,7 +9,7 @@ const Category=() => {
     const { category } = useParams();
     const { getActivityByCategory } = useActivity();
     const activity = getActivityByCategory(category)
-
+    
     const formatTime = (time) => 
         moment(time).format(`D MMM' YY, HH:mm A`)
 
