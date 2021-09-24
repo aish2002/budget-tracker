@@ -4,8 +4,10 @@ import { useActivity } from "../../hooks/useActivity";
 import Summary from "../Summary";
 
 const Today = () => {
-  const { getActivityByTime } = useActivity();
-  const activity = getActivityByTime('today');
+  const { getActivityByTime} = useActivity();
+  const {calcExpense }=useActivity();
+  const activity=getActivityByTime('today');
+  const {expense,income} = calcExpense('today');
 
   return (
     <Col className="mt-3 ">
@@ -16,19 +18,19 @@ const Today = () => {
         <Card>
           <Card.Body>
             <Card.Title>Expense</Card.Title>
-            <Card.Subtitle>120.56</Card.Subtitle>
+            <Card.Subtitle>Rs {expense}</Card.Subtitle>
           </Card.Body>
         </Card>
         <Card>
           <Card.Body>
-            <Card.Title>Income</Card.Title>
-            <Card.Subtitle>120.56</Card.Subtitle>
+            <Card.Title>Extra Income</Card.Title>
+            <Card.Subtitle>Rs {income}</Card.Subtitle>
           </Card.Body>
         </Card>
         <Card>
           <Card.Body>
             <Card.Title>Net</Card.Title>
-            <Card.Subtitle>0</Card.Subtitle>
+            <Card.Subtitle>Rs {income-expense}</Card.Subtitle>
           </Card.Body>
         </Card>
       </CardGroup>
