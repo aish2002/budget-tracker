@@ -10,8 +10,6 @@ import Category from "../Category/Category";
 import Today from "../Today/Today";
   
 const Dashboard = () => {
-  const { user } = useUser();
-  console.log(user)
   return (
     <div>
       
