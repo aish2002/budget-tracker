@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Form, Button, Alert, Card } from "react-bootstrap";
 import axios from "axios";
 import { useBudget } from "../../hooks/budget";
+import { useUser } from "../../hooks/useUser";
 
 function SetBudget() {
-  const id = "614473139a35ae5e56466c60";
-  const data = useBudget(id);
+  const {user} =useUser()
+  const data = useBudget();
   const [budgets, setBudgets] = useState({
     userid: data.userid,
     income: 0.0,
@@ -16,7 +17,7 @@ function SetBudget() {
   const handleChange = (e) => {
     console.log(e.target.value)
     setBudgets({
-      ...budgets,
+      ...budgets,userid:user.id,
       [e.target.name]: parseFloat(e.target.value),
     });
   };
@@ -52,13 +53,11 @@ function SetBudget() {
           required
         />
 
-        <Button variant="primary" type="submit" block className="mt-5">
+        <Button variant="primary" type="submit" block className="mt-5" >
           Set Budget
         </Button>
       </Form>
-      <Card className="w-fit-content mt-5">
-        <Card.Body>BUDGET FOR THE MONTH {data.budget} </Card.Body>
-      </Card>
+      
       {message && (
         <Alert
           variant="success"

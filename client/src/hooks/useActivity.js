@@ -10,7 +10,7 @@ export const useActivity = () => {
   
   const getActivityByCategory = (category) =>
     activity.filter((element) => category === element.category);
-
+    
   const getActivityByTime = (time) => 
     time === 'today' ? activity.filter(
       (element) =>
@@ -41,6 +41,19 @@ export const useActivity = () => {
     return summary;
   }
 
+  const calcExpense=(time)=>{
+    let expense=0,income=0;
+    getActivityByTime(time).map(ele=>{       
+       if(ele.status==='-')
+         expense+=ele.amount
+    })
+    getActivityByTime(time).map(ele=>{       
+      if(ele.status==='+')
+        income+=ele.amount
+   })
+    return {expense,income}
+ }
+
   useEffect(() => {
     axios
       .get("/api/getactivity", {
@@ -53,5 +66,5 @@ export const useActivity = () => {
       });
   }, [user]);
 
-  return { getActivityByCategory, getActivityByTime, getActivitySummary };
+  return { getActivityByCategory, getActivityByTime, getActivitySummary, calcExpense };
 };
