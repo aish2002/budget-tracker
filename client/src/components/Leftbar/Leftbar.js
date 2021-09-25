@@ -16,7 +16,7 @@ const Leftbar = () => {
             <Nav.Link as={Link} to="/dashboard/today">Today</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link as={Link} to="/dashboard/weekly">Weekly Status</Nav.Link>
+            <Nav.Link as={Link} to="/dashboard/weekly">This Week</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link as={Link} to="/dashboard/monthly">Monthly Status</Nav.Link>

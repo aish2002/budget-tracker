@@ -23,3 +23,17 @@ export const COLORS = [
   "#B0A8BA",
   "#C76452"
 ];
+
+export const OPTIONS = {
+  responsive: true,
+  maintainAspectRatio: false, 
+  plugins: {
+    tooltip: {
+      backgroundColor: "#fff",
+      displayColors: true,
+      titleColor: "#082D39",
+      bodyColor: "#082D39",
+      padding: 12,
+    },
+  },
+};

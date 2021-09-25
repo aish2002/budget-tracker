@@ -11,13 +11,13 @@ const Rightbar=() => {
     const colr=["#ff0000","#005266","#993300","#ffe6f9","#b3f0ff","#ffccb3"];
     const tot=500;
 
-    const sortByExpense = (a,b) => {
-        if(a.expense > b.expense)
-            return -1;
-        else if(a.expense === b.expense)
-            return 0;
-        else return 1;
-    }
+    // const sortByExpense = (a,b) => {
+    //     if(a.expense > b.expense)
+    //         return -1;
+    //     else if(a.expense === b.expense)
+    //         return 0;
+    //     else return 1;
+    // }
 
         return (
             <>

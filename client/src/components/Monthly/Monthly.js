@@ -1,13 +1,15 @@
-import React from "react";
-import { Container } from "react-bootstrap";
+import React,{useState} from "react";
+import { Container,Col,Form} from "react-bootstrap";
 import { Line } from "react-chartjs-2";
 import { useActivity } from "../../hooks/useActivity";
 import moment from "moment";
+import { CATEGORIES, OPTIONS } from "../../util";
 
 const Monthly = () => {
    const { getMonthSummary } =  useActivity();
-   const summary = getMonthSummary('',moment())
-    
+   const [category, setCategory] = useState('');
+   const summary = getMonthSummary(category,moment())
+
    const data = {
     labels: summary.map(ele => ele.day),
     datasets: [
@@ -34,25 +36,22 @@ const Monthly = () => {
     ],
   };
 
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false, 
-    plugins: {
-      tooltip: {
-        backgroundColor: "#fff",
-        displayColors: true,
-        titleColor: "#082D39",
-        bodyColor: "#082D39",
-        padding: 12,
-      },
-    },
-  };
-
    return (
     <div>
-      <h1>Monthly Status</h1>
+      <div className="d-flex justify-content-between">
+        <Col><h1>Monthly Status</h1></Col>
+        <Col>
+        <Form.Control as="select" onChange={(e) => setCategory(e.target.value)}>
+            {CATEGORIES.map((category) => (
+              <option key={category} onClick={() => setCategory(category)}>
+                {category}
+              </option>
+            ))}
+        </Form.Control>
+        </Col>
+        </div>
       <Container fluid className="py-5 px-0">
-        <Line  data={data} options={options} height="500px"/>
+        <Line  data={data} options={OPTIONS} height="500px"/>
       </Container>
     </div>
   );
