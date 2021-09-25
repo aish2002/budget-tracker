@@ -52,7 +52,7 @@ const Monthly = () => {
     <div>
       <h1>Monthly Status</h1>
       <Container fluid className="py-5 px-0">
-        <Line  data={data} options={options} />
+        <Line  data={data} options={options} height="500px"/>
       </Container>
     </div>
   );

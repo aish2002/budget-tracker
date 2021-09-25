@@ -52,9 +52,24 @@ export const useActivity = () => {
         income: income
       })
     }
+  }
+
+    const getWeekSummary = (category) => {
+      const start = moment().clone().startOf('week').format('D')
+      const end = moment().clone().endOf('week').format('D')
+      const summary = [];
+      const suffix =  moment().format('YYYY-MM-');
+      for(let i= start; i <= end;i++){
+        const {expense,income} = calcExpense(category,suffix+i)
+        summary.push({
+          day: suffix + i,
+          expense: expense,
+          income: income
+        })
+      }
     //console.log(summary)
     return summary;
-  }
+    }
  
   const getCategorySummary = (time) => {
     let summary = [];
@@ -81,5 +96,5 @@ export const useActivity = () => {
       });
   }, [user]);
 
-  return { getCategorySummary, getMonthSummary, calcExpense, filterActivity };
+  return { getCategorySummary, getMonthSummary, getWeekSummary , calcExpense, filterActivity };
 };
