@@ -22,7 +22,7 @@ const Activity = () => {
         <h5>
           Filters:{" "}
           {category.length > 0 && <Badge variant="primary" className="p-2">
-            {category} <span onClick={() => setCategory('')} className="close">&#215;</span>
+            <span>{category}</span> <span onClick={() => setCategory('')} className="close">&#215;</span>
           </Badge>}
           {date.length > 0 && <Badge variant="primary" className="p-2">
             {moment(date).format('DD MMM YYYY')} <span onClick={() => setDate('')} className="close">&#215;</span>
@@ -33,6 +33,8 @@ const Activity = () => {
             menuAlign="right"
             title="Category"
             id="dropdown-menu-align-right"
+            className="mx-3"
+
           >
             {CATEGORIES.map((category) => (
               <DropdownItem key={category} onClick={() => setCategory(category)}>
@@ -40,12 +42,12 @@ const Activity = () => {
               </DropdownItem>
             ))}
           </DropdownButton>
-          <input type="date" min="2021-01-01" value={date} onChange={(e) => setDate(e.target.value)}/>
+          <input type="date" min="2021-09-01" value={date} onChange={(e) => setDate(e.target.value)}/>
         </div>
       </div>
       {activity.length === 0 ? (
         <span>
-          <Row className="justify-content-center">
+          <Row className="justify-content-center mt-5 pt-5">
             <Sad />
           </Row>
           <Col className="text-center">

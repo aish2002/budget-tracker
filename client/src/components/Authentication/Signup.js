@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Row, Form, Button, Col } from "react-bootstrap";
 import axios from "axios";
+import './Authentication.css';
 
 const SignUp = () => {
   const [user, setUser] = useState({
@@ -89,6 +90,7 @@ const SignUp = () => {
                 variant="outline-primary"
                 style={{ width: "100%" }}
                 href="/signin"
+                className="signin"
               >
                 Sign In
               </Button>

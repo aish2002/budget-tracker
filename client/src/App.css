@@ -1,24 +1,23 @@
-body{
-    overflow-x: hidden;
+body {
+  overflow-x: hidden;
 }
-.font_xxl{
-    font-size: 50px !important;
+.btn {
+  background-color: #9072c2 !important;
+  border-color: #9072c2 !important;
 }
-.font_xl{
-    font-size: 32px !important;
+.btn:hover {
+  background-color: #8b67c5 !important;
+  border-color: #8b67c5 !important;
 }
-.font_l{
-    font-size: 28px !important;
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem #9172c279 !important;
 }
-.font_m{
-    font-size: 24px !important;
+a {
+  color: #9072c2 !important;
 }
-.font_s{
-    font-size: 20px !important;
-}
-.font_xs{
-    font-size: 16px !important;
-}
-svg{
-    max-height: 400px !important;
+.form-control:focus {
+  color: #495057;
+  border-color: #9172c279 !important;
+  box-shadow: 0 0 0 0.2rem #9172c279 !important;
+  outline: 0;
 }
