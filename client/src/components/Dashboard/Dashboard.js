@@ -6,8 +6,9 @@ import { Route, Switch } from "react-router-dom";
 import SetBudget from "../SetBudget/SetBudget";
 import Header from "../Header/Header";
 import Activity from "../Activity/Activity";
+import { Midsection } from "../Midsection/Midsection";
 import Today from "../Today/Today";
-  
+
 const Dashboard = () => {
   return (
     <div>
@@ -18,7 +19,10 @@ const Dashboard = () => {
         </div>
         <Col className="m-4">
             <Switch>
-              <Route exact path="/dashboard" component={Header}/>
+              <Route exact path="/dashboard" >
+                <Header/>
+                <Midsection/>
+                </Route>
               <Route exact path="/dashboard/today" component={Today}/>
               {/* <Route path="/weekly" component={}/>
               <Route path="/monthly" component={}/>
@@ -26,6 +30,7 @@ const Dashboard = () => {
               <Route path="/dashboard/setup" component={SetBudget} /> 
               <Route path="/dashboard/activity" component={Activity} /> 
             </Switch>
+          
         </Col>
         <div>
           <Route exact path="/dashboard" component={Rightbar} />

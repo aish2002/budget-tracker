@@ -1,7 +1,6 @@
 import React from "react";
-import {  ListGroup,Navbar,Nav} from "react-bootstrap";
+import { Navbar,Nav} from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { CATEGORIES } from "../../util";
 import "./Leftbar.css";
 
 const Leftbar = () => {  

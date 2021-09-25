@@ -8,32 +8,35 @@ export const useActivity = () => {
   const { user } = useUser();
   const [activity, setActivity] = useState([]);
 
-  const getActivityByCategory = (category) =>
-    category === 'all' ? activity : 
+  const filterActivity = (category,time) => {
+    const activitybycategory = category === '' ? activity : 
     activity.filter((element) => category === element.category);
 
-  const getActivityByTime = (time) => 
-    time === 'today' ? activity.filter(
-      (element) =>
-        moment().format("DD-MM-YYYY") ===
-        moment(element.createdAt).format("DD-MM-YYYY")
-    ) : time === 'week' ? activity.filter(
+    const filteredactivity = time === '' ? activity : 
+    time === 'week' ? activitybycategory.filter(
       (element) => {
         const start = moment().clone().startOf('week') 
         const end = moment().clone().endOf('week') 
         return moment(element.createdAt).isBetween(start,end)
       }
-    ) : activity.filter(
+    ) : time=== 'month' ? activitybycategory.filter(
       (element) =>
         moment().format("MM-YYYY") ===
         moment(element.createdAt).format("MM-YYYY")
+    ) : activitybycategory.filter(
+      (element) =>
+        moment(time).format("DD-MM-YYYY") ===
+        moment(element.createdAt).format("DD-MM-YYYY")
     );
+
+    return filteredactivity;
+  }
     
-  const getActivitySummary = () => {
+  const getActivitySummary = (time) => {
     let summary = [];
     for(let category of CATEGORIES){
       let sum = 0;
-      getActivityByCategory(category).forEach(element => sum += element.amount)
+      filterActivity(category,time).forEach(element => sum += element.amount)
       summary.push({
         name: category,
         amount: sum
@@ -41,6 +44,14 @@ export const useActivity = () => {
     }
     return summary;
   }
+
+  const calcExpense=(time)=>{
+    let expense=0,income=0;
+    filterActivity('',time).map(ele =>       
+       ele.status==='-' ? expense += ele.amount : income += ele.amount
+    )
+    return {expense,income}
+ }
 
   useEffect(() => {
     axios
@@ -54,5 +65,5 @@ export const useActivity = () => {
       });
   }, [user]);
 
-  return { getActivityByCategory, getActivityByTime, getActivitySummary };
+  return { getActivitySummary, calcExpense, filterActivity };
 };

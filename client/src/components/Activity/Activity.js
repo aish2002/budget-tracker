@@ -5,11 +5,13 @@ import moment from "moment";
 import { ReactComponent as Sad } from "../../assets/sad.svg";
 import { CATEGORIES } from "../../util";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
+import './Activity.css'
 
-const Category = () => {
-  const { getActivityByCategory } = useActivity();
-  const [category, setCategory] = useState("all");
-  const activity = getActivityByCategory(category);
+const Activity = () => {
+  const { filterActivity } = useActivity();
+  const [category, setCategory] = useState('');
+  const [date, setDate] = useState('')
+  const activity = filterActivity(category,date);
 
   const formatTime = (time) => moment(time).format(`D MMM' YY, HH:mm A`);
 
@@ -19,21 +21,27 @@ const Category = () => {
       <div className="d-flex justify-content-between my-3">
         <h5>
           Filters:{" "}
-          <Badge variant="primary" className="p-2">
-            {category} <span onClick={() => setCategory("all")}>&#215;</span>
-          </Badge>
+          {category.length > 0 && <Badge variant="primary" className="p-2">
+            {category} <span onClick={() => setCategory('')} className="close">&#215;</span>
+          </Badge>}
+          {date.length > 0 && <Badge variant="primary" className="p-2">
+            {moment(date).format('DD MMM YYYY')} <span onClick={() => setDate('')} className="close">&#215;</span>
+          </Badge>}
         </h5>
-        <DropdownButton
-          menuAlign="right"
-          title="Category"
-          id="dropdown-menu-align-right"
-        >
-          {CATEGORIES.map((category) => (
-            <DropdownItem key={category} onClick={() => setCategory(category)}>
-              {category}
-            </DropdownItem>
-          ))}
-        </DropdownButton>
+        <div className="d-flex ">
+          <DropdownButton
+            menuAlign="right"
+            title="Category"
+            id="dropdown-menu-align-right"
+          >
+            {CATEGORIES.map((category) => (
+              <DropdownItem key={category} onClick={() => setCategory(category)}>
+                {category}
+              </DropdownItem>
+            ))}
+          </DropdownButton>
+          <input type="date" min="2021-01-01" value={date} onChange={(e) => setDate(e.target.value)}/>
+        </div>
       </div>
       {activity.length === 0 ? (
         <span>
@@ -65,4 +73,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Activity;
