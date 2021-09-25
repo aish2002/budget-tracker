@@ -1,11 +1,13 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import { Line,Bar } from "react-chartjs-2";
+import React,{useState} from "react";
+import { Container,Col,Form} from "react-bootstrap";
+import { Bar } from "react-chartjs-2";
 import { useActivity } from "../../hooks/useActivity";
+import { CATEGORIES, OPTIONS } from "../../util";
 
 const Weekly = () => {
     const { getWeekSummary } =  useActivity();
-    const summary = getWeekSummary('')
+     const [category, setCategory] = useState('')
+     const summary = getWeekSummary(category)
      
     const data = {
      labels: summary.map(ele => ele.day),
@@ -33,24 +35,22 @@ const Weekly = () => {
      ],
    };
  
-   const options = {
-     responsive: true,
-     maintainAspectRatio: false, 
-     plugins: {
-       tooltip: {
-         backgroundColor: "#fff",
-         displayColors: true,
-         titleColor: "#082D39",
-         bodyColor: "#082D39",
-         padding: 12,
-       },
-     },
-   };
   return (
     <div>
-      <h1>Weekly Status</h1>
+      <div className="d-flex justify-content-between">
+        <Col><h1>This Week</h1></Col>
+        <Col>
+        <Form.Control as="select" onChange={(e) => setCategory(e.target.value)}>
+            {CATEGORIES.map((category) => (
+              <option key={category} onClick={() => setCategory(category)}>
+                {category}
+              </option>
+            ))}
+        </Form.Control>
+        </Col>
+        </div>
       <Container fluid className="py-5 px-0">
-        <Bar  data={data} options={options} height="500px"/>
+        <Bar  data={data} options={OPTIONS} height="500px"/>
       </Container>
     </div>
   );

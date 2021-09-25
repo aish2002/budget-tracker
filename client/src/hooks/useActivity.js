@@ -52,6 +52,7 @@ export const useActivity = () => {
         income: income
       })
     }
+    return summary
   }
 
     const getWeekSummary = (category) => {
