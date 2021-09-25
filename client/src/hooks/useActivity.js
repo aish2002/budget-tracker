@@ -7,51 +7,82 @@ import { CATEGORIES } from '../util';
 export const useActivity = () => {
   const { user } = useUser();
   const [activity, setActivity] = useState([]);
-  
-  const getActivityByCategory = (category) =>
+
+  const filterActivity = (category,time) => {
+    const activitybycategory = category === '' ? activity : 
     activity.filter((element) => category === element.category);
     
-  const getActivityByTime = (time) => 
-    time === 'today' ? activity.filter(
-      (element) =>
-        moment().format("DD-MM-YYYY") ===
-        moment(element.createdAt).format("DD-MM-YYYY")
-    ) : time === 'week' ? activity.filter(
+    const filteredactivity = time === '' ? activitybycategory : 
+    time === 'week' ? activitybycategory.filter(
       (element) => {
         const start = moment().clone().startOf('week') 
         const end = moment().clone().endOf('week') 
         return moment(element.createdAt).isBetween(start,end)
       }
-    ) : activity.filter(
+    ) : time=== 'month' ? activitybycategory.filter(
       (element) =>
         moment().format("MM-YYYY") ===
         moment(element.createdAt).format("MM-YYYY")
+    ) : activitybycategory.filter(
+      (element) =>
+        moment(time,"YYYY-MM-DD").format("DD-MM-YYYY") ===
+        moment(element.createdAt).format("DD-MM-YYYY")
     );
     
-  const getActivitySummary = () => {
+    return filteredactivity;
+  }
+
+  const calcExpense=(category,time)=>{
+    let expense=0,income=0;
+    filterActivity(category,time).forEach(ele =>       
+       ele.status==='-' ? expense += ele.amount : income += ele.amount
+    )
+    
+    return {expense,income}
+  }
+
+  const getMonthSummary = (category,time) => {
+    const summary = [];
+    const suffix =  moment(time).format('YYYY-MM-');
+    for(let i=1; i <= moment(time).daysInMonth();i++){
+      const {expense,income} = calcExpense(category,suffix+i)
+      summary.push({
+        day: suffix + i,
+        expense: expense,
+        income: income
+      })
+    }
+  }
+
+    const getWeekSummary = (category) => {
+      const start = moment().clone().startOf('week').format('D')
+      const end = moment().clone().endOf('week').format('D')
+      const summary = [];
+      const suffix =  moment().format('YYYY-MM-');
+      for(let i= start; i <= end;i++){
+        const {expense,income} = calcExpense(category,suffix+i)
+        summary.push({
+          day: suffix + i,
+          expense: expense,
+          income: income
+        })
+      }
+    //console.log(summary)
+    return summary;
+    }
+ 
+  const getCategorySummary = (time) => {
     let summary = [];
     for(let category of CATEGORIES){
-      let sum = 0;
-      getActivityByCategory(category).forEach(element => sum += element.amount)
+      const {expense,income} = calcExpense(category,time)
       summary.push({
         name: category,
-        amount: sum
+        expense: expense,
+        income: income
       })
     }
     return summary;
   }
-
-  const calcExpense=(time)=>{
-    let expense=0,income=0;
-    getActivityByTime(time).map(ele=>{       
-       if(ele.status==='-')
-         expense+=ele.amount
-      else
-        income+=ele.amount
-    })
-    
-    return {expense,income}
- }
 
   useEffect(() => {
     axios
@@ -65,5 +96,5 @@ export const useActivity = () => {
       });
   }, [user]);
 
-  return { getActivityByCategory, getActivityByTime, getActivitySummary, calcExpense };
+  return { getCategorySummary, getMonthSummary, getWeekSummary , calcExpense, filterActivity };
 };

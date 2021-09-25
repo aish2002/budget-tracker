@@ -1,13 +1,12 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { BrowserRouter,Route,Redirect } from "react-router-dom";
-import SignUp from "../Signup/Signup";
-import Signin from "../Signin/Signin";
-import Reset from "../Reset/Reset";
-import Dashboard from "../Dashboard/Dashboard";
+import SignUp from "./Authentication/Signup";
+import Signin from "./Authentication/Signin";
+import Reset from "./Authentication/Reset";
+import Dashboard from "./Dashboard";
 
-function Home() {
-  
+const Home = () => {
     return (
       <BrowserRouter>
         <Container >

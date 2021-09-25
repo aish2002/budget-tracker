@@ -13,7 +13,7 @@ const Header = () => {
         topic: '',
         amount: 0,
         status: '-',
-        category: ''
+        category: 'Transport'
     })
 
     const handleSubmit = (e) => {
@@ -47,7 +47,7 @@ const Header = () => {
             </h1>
             {show && <Form onSubmit={handleSubmit}>
                 <Form.Group>
-                    <Form.Control placeholder="topic" name="topic" value={expense.topic} onChange={handleChange}/>
+                    <Form.Control placeholder="topic" name="topic" value={expense.topic} onChange={handleChange} required/>
                 </Form.Group>
                 <InputGroup className="mb-3">
                     <InputGroup.Prepend>

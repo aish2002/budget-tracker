@@ -1,15 +1,13 @@
-import React, {useState}from "react";
+import React from "react";
 import { Card, CardGroup } from "react-bootstrap";
 import { useBudget } from "../../hooks/budget";
 import { useActivity } from "../../hooks/useActivity";
-import { useUser } from "../../hooks/useUser";
 import "./Midsection.css";
 
-export const Midsection = () => {
-  const { user } = useUser();
+const Midsection = () => {
   const budget = useBudget();
   const { calcExpense} = useActivity();
-  const {expense,income} = calcExpense('month');
+  const {expense,income} = calcExpense('','month');
  
   return (
     <CardGroup className="mt-4">
@@ -32,3 +30,5 @@ export const Midsection = () => {
     </CardGroup>
   );
 };
+
+export default Midsection;
