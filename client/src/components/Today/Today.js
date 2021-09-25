@@ -1,14 +1,26 @@
 import React from "react";
-import { Card, Col, CardGroup } from "react-bootstrap";
+import { Card, Col, CardGroup,Container } from "react-bootstrap";
 import { useActivity } from "../../hooks/useActivity";
 import moment from "moment";
-import { VictoryPie, VictoryTooltip } from "victory";
 import { COLORS } from "../../util";
+import { Pie } from 'react-chartjs-2';
 
 const Today = () => {
-  const { calcExpense, getActivitySummary } = useActivity();
-  const { expense, income } = calcExpense(moment());
-
+  const { calcExpense, getCategorySummary } = useActivity();
+  const { expense, income } = calcExpense('',moment());
+  const summary = getCategorySummary(moment())
+  const data = {
+    labels: summary.map((ele) => ele.name),
+    datasets: [
+      {
+        label: 'Category',
+        data: summary.map((ele) => ele.expense),
+        backgroundColor: COLORS,
+        borderColor: COLORS,
+        borderWidth: 1,
+      },
+    ],
+  };
   return (
     <Col className="mt-3 ">
       <h1 className="mb-4 d-flex justify-content-between">
@@ -35,23 +47,9 @@ const Today = () => {
         </Card>
       </CardGroup>
       <hr />
-      <VictoryPie
-        colorScale={COLORS}
-        data={getActivitySummary(moment())}
-        x="name"
-        y="amount"
-        labels={({ datum }) => `${datum.name} - ${datum.amount} `}
-        labelComponent={
-          <VictoryTooltip
-            style={{ fill: "#fff" }}
-            flyoutPadding={10}
-            flyoutStyle={{
-              stroke: "#9072C2",
-              fill: "#9072C2",
-            }}
-          />
-        }
-      />
+      <Container fluid className="py-5 px-0">
+        <Pie data={data} options={{ maintainAspectRatio: false }} height="450px"/>
+      </Container>
     </Col>
   );
 };

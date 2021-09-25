@@ -11,8 +11,8 @@ export const useActivity = () => {
   const filterActivity = (category,time) => {
     const activitybycategory = category === '' ? activity : 
     activity.filter((element) => category === element.category);
-
-    const filteredactivity = time === '' ? activity : 
+    
+    const filteredactivity = time === '' ? activitybycategory : 
     time === 'week' ? activitybycategory.filter(
       (element) => {
         const start = moment().clone().startOf('week') 
@@ -25,33 +25,49 @@ export const useActivity = () => {
         moment(element.createdAt).format("MM-YYYY")
     ) : activitybycategory.filter(
       (element) =>
-        moment(time).format("DD-MM-YYYY") ===
+        moment(time,"YYYY-MM-DD").format("DD-MM-YYYY") ===
         moment(element.createdAt).format("DD-MM-YYYY")
     );
-
+    
     return filteredactivity;
   }
+
+  const calcExpense=(category,time)=>{
+    let expense=0,income=0;
+    filterActivity(category,time).forEach(ele =>       
+       ele.status==='-' ? expense += ele.amount : income += ele.amount
+    )
     
-  const getActivitySummary = (time) => {
+    return {expense,income}
+  }
+
+  const getMonthSummary = (category,time) => {
+    const summary = [];
+    const suffix =  moment(time).format('YYYY-MM-');
+    for(let i=1; i <= moment(time).daysInMonth();i++){
+      const {expense,income} = calcExpense(category,suffix+i)
+      summary.push({
+        day: suffix + i,
+        expense: expense,
+        income: income
+      })
+    }
+    //console.log(summary)
+    return summary;
+  }
+ 
+  const getCategorySummary = (time) => {
     let summary = [];
     for(let category of CATEGORIES){
-      let sum = 0;
-      filterActivity(category,time).forEach(element => sum += element.amount)
+      const {expense,income} = calcExpense(category,time)
       summary.push({
         name: category,
-        amount: sum
+        expense: expense,
+        income: income
       })
     }
     return summary;
   }
-
-  const calcExpense=(time)=>{
-    let expense=0,income=0;
-    filterActivity('',time).map(ele =>       
-       ele.status==='-' ? expense += ele.amount : income += ele.amount
-    )
-    return {expense,income}
- }
 
   useEffect(() => {
     axios
@@ -65,5 +81,5 @@ export const useActivity = () => {
       });
   }, [user]);
 
-  return { getActivitySummary, calcExpense, filterActivity };
+  return { getCategorySummary, getMonthSummary, calcExpense, filterActivity };
 };

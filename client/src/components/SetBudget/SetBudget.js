@@ -33,7 +33,7 @@ function SetBudget() {
   return (
     <>
       <Form
-        className="mt-5  w-50 w-responsive  mx-3  "
+        className="mt-5 mx-3  "
         onSubmit={handleSetBudget}
       >
         <h1 className="font_xl my-5 mx-2 ">Set Your Budget for this Month </h1>

@@ -4,10 +4,10 @@ import { useBudget } from "../../hooks/budget";
 import { useActivity } from "../../hooks/useActivity";
 import "./Midsection.css";
 
-export const Midsection = () => {
+const Midsection = () => {
   const budget = useBudget();
   const { calcExpense} = useActivity();
-  const {expense,income} = calcExpense('month');
+  const {expense,income} = calcExpense('','month');
  
   return (
     <CardGroup className="mt-4">
@@ -30,3 +30,5 @@ export const Midsection = () => {
     </CardGroup>
   );
 };
+
+export default Midsection;
