@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Row, Form, Button, Col } from "react-bootstrap";
+import { Row, Form, Button, Col, Navbar, NavbarBrand,Image } from "react-bootstrap";
 import axios from "axios";
 import './Authentication.css';
+import {ReactComponent as Money} from "../../assets/money.svg";
+import logo from "../../assets/logo.png";
 
 const SignUp = () => {
   const [user, setUser] = useState({
@@ -37,7 +39,15 @@ const SignUp = () => {
     });
 
   return (
-    <Row className="min-vh-100 justify-content-center align-items-center login-signup">
+    <div className='min-vh-100'>
+      <Navbar>
+        <Navbar.Brand>
+          <Image src={logo} width="80px" height="80px" />
+          MoneyFlow
+        </Navbar.Brand>
+      </Navbar>
+      <Row className="justify-content-center align-items-center login-signup mt-5 pt-5">
+      <Col className='d-none d-md-block'><Money/></Col>
       <Col className="px-4">
         <h2>Create Account</h2>
 
@@ -98,8 +108,8 @@ const SignUp = () => {
           </Row>
         </Form>
       </Col>
-      <Col></Col>
     </Row>
+    </div>
   );
 };
 

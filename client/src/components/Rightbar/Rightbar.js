@@ -14,7 +14,6 @@ const Rightbar = () => {
     "#b3f0ff",
     "#ffccb3",
   ];
-  const tot = 500;
   const user = useUser();
   const budget = useBudget();
   const { calcExpense,topCategories } = useActivity();
@@ -31,7 +30,7 @@ const Rightbar = () => {
         </Button>
         <h5 className="my-3">Data </h5>
         <CardGroup>
-          <Card >
+          <Card className='mr-2'>
             <Card.Body>
                 <Card.Title>INCOME</Card.Title>
                 <Card.Subtitle>Rs {budget.income}</Card.Subtitle>

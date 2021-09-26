@@ -1,0 +1,19 @@
+.setup{
+    min-width: 300px !important;
+    height: 45px;
+    font-size: 1.2rem;
+}
+
+.setuplabel{
+    font-size: 1.2rem;
+}
+
+.setform{
+    min-width: 500px !important;
+}
+
+@media (max-width: 564px){
+    .setform{
+        min-width: 0 !important;
+    }
+}

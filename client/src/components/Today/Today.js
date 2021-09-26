@@ -22,9 +22,9 @@ const Today = () => {
     ],
   };
   return (
-    <Col className="mt-3 ">
-      <h1 className="mb-4 d-flex justify-content-between">
-        <span>Today</span>
+    <Col >
+      <h1 className="mb-4 ">
+        Today
       </h1>
       <CardGroup className="text-center">
         <Card>
@@ -47,7 +47,7 @@ const Today = () => {
         </Card>
       </CardGroup>
       <hr />
-      <Container fluid className="py-5 px-0">
+      <Container fluid className="py-3 px-0 ">
         <Pie data={data} options={{ maintainAspectRatio: false }} height="450px"/>
       </Container>
     </Col>
