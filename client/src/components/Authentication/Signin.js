@@ -62,7 +62,7 @@ const Signin = () => {
           <div className="text-right">
             <Link to="/reset">Forgot Password ?</Link>
           </div>
-          <Form.Text>{msg}</Form.Text>
+          <Form.Text className="error font_s">{msg}</Form.Text>
           <br />
           <Button variant="primary" type="submit" block>
             Sign In

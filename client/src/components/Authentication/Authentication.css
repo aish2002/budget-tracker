@@ -1,3 +1,6 @@
 .signin{
     color: white !important;
 }
+.error{
+    color: red;
+}
