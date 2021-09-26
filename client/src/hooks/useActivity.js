@@ -41,7 +41,18 @@ export const useActivity = () => {
     
     return {expense,income}
   }
-
+  const top3=(time)=>{
+    const sortbyExpense = (a,b) => {
+      if(a.expense > b.expense)
+          return -1;
+      else if(a.expense === b.expense)
+          return 0;
+      else return 1;
+    }
+    const summary=getCategorySummary(time);
+    const top=summary.sort(sortbyExpense).slice(0,3)
+    return top;
+  }
   const getMonthSummary = (category,time) => {
     const summary = [];
     const suffix =  moment(time).format('YYYY-MM-');
@@ -97,5 +108,5 @@ export const useActivity = () => {
       });
   }, [user]);
 
-  return { getCategorySummary, getMonthSummary, getWeekSummary , calcExpense, filterActivity };
+  return { getCategorySummary, getMonthSummary, getWeekSummary , calcExpense, filterActivity,top3 };
 };
