@@ -41,7 +41,7 @@ export const useActivity = () => {
     
     return {expense,income}
   }
-  const top3=(time)=>{
+  const topCategories=(time)=>{
     const sortbyExpense = (a,b) => {
       if(a.expense > b.expense)
           return -1;
@@ -50,7 +50,7 @@ export const useActivity = () => {
       else return 1;
     }
     const summary=getCategorySummary(time);
-    const top=summary.sort(sortbyExpense).slice(0,3)
+    const top=summary.sort(sortbyExpense).slice(0,4)
     return top;
   }
   const getMonthSummary = (category,time) => {
@@ -108,5 +108,5 @@ export const useActivity = () => {
       });
   }, [user]);
 
-  return { getCategorySummary, getMonthSummary, getWeekSummary , calcExpense, filterActivity,top3 };
+  return { getCategorySummary, getMonthSummary, getWeekSummary , calcExpense, filterActivity,topCategories };
 };

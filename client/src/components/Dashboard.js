@@ -18,7 +18,7 @@ const Dashboard = () => {
         <div  className="pr-0">
           <Leftbar />
         </div>
-        <Col className="m-4">
+        <Col className="my-4">
             <Switch>
               <Route exact path="/dashboard" >
                 <Header/>

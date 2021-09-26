@@ -30,7 +30,7 @@ const Midsection = () => {
 
   return (
     <>
-      <CardGroup className="mt-4">
+      <CardGroup className="my-4">
         <Card className="m-4 midcard text-center">
           <Card.Body>
             <div className="my-4">TOTAL EXPENSES</div> <h5>Rs {expense}</h5>
