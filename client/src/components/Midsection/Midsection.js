@@ -11,7 +11,7 @@ const Midsection = () => {
   const budget = useBudget();
   const { calcExpense} = useActivity();
   const {expense,income} = calcExpense('','month');
-  const percentage=66
+  // const percentage=66
   const savings=budget.income+income-expense;
   const color =savings>budget.savings?"green":savings===budget.savings?"orange":"red";
   const message=

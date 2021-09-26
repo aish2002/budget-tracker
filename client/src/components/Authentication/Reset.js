@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Row, Form, Button, Col} from "react-bootstrap";
 import axios from "axios";
+import './Authentication.css'
 
 const Reset = () => {
   const [user, setUser] = useState({
@@ -61,7 +62,7 @@ const Reset = () => {
           />
           {!(user.password === user.repassword) &&
             user.repassword.length > 1 && (
-              <Form.Text>Password does not match</Form.Text>
+              <Form.Text className="error">Password does not match</Form.Text>
             )}
           <br />
           <Button variant="primary" type="submit" block>

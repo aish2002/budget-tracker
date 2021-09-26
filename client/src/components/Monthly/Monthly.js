@@ -42,8 +42,11 @@ const Monthly = () => {
         <Col><h1>Monthly Status</h1></Col>
         <Col>
         <Form.Control as="select" onChange={(e) => setCategory(e.target.value)}>
+              <option value=''>
+                All
+              </option>
             {CATEGORIES.map((category) => (
-              <option key={category} onClick={() => setCategory(category)}>
+              <option key={category} >
                 {category}
               </option>
             ))}

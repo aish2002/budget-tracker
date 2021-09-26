@@ -1,3 +1,4 @@
+import moment from "moment";
 import React,{useState} from "react";
 import { Container,Col,Form} from "react-bootstrap";
 import { Bar } from "react-chartjs-2";
@@ -8,9 +9,9 @@ const Weekly = () => {
     const { getWeekSummary } =  useActivity();
      const [category, setCategory] = useState('')
      const summary = getWeekSummary(category)
-     
+   
     const data = {
-     labels: summary.map(ele => ele.day),
+     labels: summary.map(ele => moment(ele.day).format('DD MMM YY')),
      datasets: [
        {
          label: "Expense",
@@ -41,8 +42,9 @@ const Weekly = () => {
         <Col><h1>This Week</h1></Col>
         <Col>
         <Form.Control as="select" onChange={(e) => setCategory(e.target.value)}>
+            <option value=''>All</option>
             {CATEGORIES.map((category) => (
-              <option key={category} onClick={() => setCategory(category)}>
+              <option key={category}>
                 {category}
               </option>
             ))}

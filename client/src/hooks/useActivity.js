@@ -9,7 +9,8 @@ export const useActivity = () => {
   const [activity, setActivity] = useState([]);
 
   const filterActivity = (category,time) => {
-    const activitybycategory = category === '' ? activity : 
+
+    const activitybycategory = category.length === 0 ? activity : 
     activity.filter((element) => category === element.category);
     
     const filteredactivity = time === '' ? activitybycategory : 
@@ -56,14 +57,13 @@ export const useActivity = () => {
   }
 
     const getWeekSummary = (category) => {
-      const start = moment().clone().startOf('week').format('D')
-      const end = moment().clone().endOf('week').format('D')
+      const day = parseInt(moment().clone().format('D'))
       const summary = [];
       const suffix =  moment().format('YYYY-MM-');
-      for(let i= start; i <= end;i++){
-        const {expense,income} = calcExpense(category,suffix+i)
+      for(let i= 6; i >= 0 ;i--){
+        const {expense,income} = calcExpense(category,suffix+(day - i))
         summary.push({
-          day: suffix + i,
+          day: suffix + (day - i),
           expense: expense,
           income: income
         })

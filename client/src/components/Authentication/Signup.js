@@ -75,9 +75,9 @@ const SignUp = () => {
           />
           {!(user.password === user.repassword) &&
             user.repassword.length > 1 && (
-              <Form.Text>Password does not match</Form.Text>
+              <Form.Text className="error">Password does not match</Form.Text>
             )}
-            <Form.Text>{msg}</Form.Text>
+            <Form.Text className="error">{msg}</Form.Text>
           <br/>
           <Row className="justify-content-between">
             <Col>

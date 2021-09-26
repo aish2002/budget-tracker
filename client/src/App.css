@@ -21,3 +21,6 @@ a {
   box-shadow: 0 0 0 0.2rem #9172c279 !important;
   outline: 0;
 }
+.font_s{
+  font-size: 16px !important;
+}
