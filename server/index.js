@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
-//import path from 'path';
+import path from 'path';
 import express from 'express';
 import { loginuser,registeruser,reset, userdetails } from './controllers/user';
 //import { verifyToken } from './middleware/auth';
@@ -11,8 +11,8 @@ import session from 'express-session';
 
 connect();
 const app = express();
-//for production
-//app.use(express.static(path.resolve(__dirname,'../client/build')))
+//for serversiderendering
+app.use(express.static(path.resolve(__dirname,'../client/build')))
 app.use(express.json())
 app.use(session({
   secret: 'sfjsk,akqklqkqkel',
@@ -42,6 +42,6 @@ app.listen(PORT, (err) => {
 });
 
 //for production
-// app.get('*',(req,res) => 
-//     res.sendFile(path.resolve(__dirname,'../client/build','index.html'))
-// )
+app.get('*',(req,res) => 
+    res.sendFile(path.resolve(__dirname,'../client/build','index.html'))
+)
