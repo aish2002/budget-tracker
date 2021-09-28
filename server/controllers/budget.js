@@ -1,6 +1,6 @@
-import { Budget } from "../model/budget";
+const { Budget } = require("../model/budget.js");
 
-export const setbudget = (req, res) => {
+const setbudget = (req, res) => {
   try {
       console.log(req.body)
     Budget.findOneAndUpdate(
@@ -30,7 +30,7 @@ export const setbudget = (req, res) => {
   }
 };
 
-export const getbudget = async (req, res) => {
+const getbudget = async (req, res) => {
   try {
     // console.log(req.query)
     const bg = await Budget.findOne({ userid: req.query.id }).exec();
@@ -40,3 +40,5 @@ export const getbudget = async (req, res) => {
     console.log("get budget error: ", err);
   }
 };
+
+module.exports = {getbudget, setbudget}
