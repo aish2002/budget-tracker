@@ -30,11 +30,9 @@ const Dashboard = () => {
               <Route path="/dashboard/setup" component={SetBudget} /> 
               <Route path="/dashboard/activity" component={Activity} /> 
             </Switch>
-          
+            <Route exact path="/dashboard" component={Rightbar} />
         </Col>
-        <div>
-          <Route exact path="/dashboard" component={Rightbar} />
-        </div>
+        
       </Row>
      
     </div>

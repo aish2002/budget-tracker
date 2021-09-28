@@ -8,6 +8,7 @@ import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import './Activity.css'
 
 const Activity = () => {
+  
   const { filterActivity } = useActivity();
   const [category, setCategory] = useState('');
   const [date, setDate] = useState('')
@@ -42,7 +43,7 @@ const Activity = () => {
               </DropdownItem>
             ))}
           </DropdownButton>
-          <input type="date" min="2021-09-01" value={date} onChange={(e) => setDate(e.target.value)}/>
+          <input type="date" min="2021-09-15" value={date} onChange={(e) => setDate(e.target.value)}/>
         </div>
       </div>
       {activity.length === 0 ? (

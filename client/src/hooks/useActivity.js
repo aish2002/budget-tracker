@@ -50,7 +50,7 @@ export const useActivity = () => {
       else return 1;
     }
     const summary=getCategorySummary(time);
-    const top=summary.sort(sortbyExpense).slice(0,4)
+    const top=summary.sort(sortbyExpense).slice(0,3)
     return top;
   }
   const getMonthSummary = (category,time) => {
