@@ -97,7 +97,7 @@ const SignUp = () => {
             </Col>
             <Col>
               <Button
-                variant="outline-primary"
+                
                 style={{ width: "100%" }}
                 href="/signin"
                 className="signin"

@@ -2,25 +2,25 @@ body {
   overflow-x: hidden;
   min-width: 400px;
 }
-.btn {
+.btn-primary {
   background-color: #9072c2 !important;
   border-color: #9072c2 !important;
   color: white !important;
 }
-.btn:hover {
+.btn-primary:hover {
   background-color: #8b67c5 !important;
   border-color: #8b67c5 !important;
 }
 .btn:focus {
-  box-shadow: 0 0 0 0.2rem #9172c279 !important;
+  box-shadow: none !important;
 }
 a {
   color: #9072c2 !important;
 }
-.form-control:focus {
+.form-control:focus,.form-control:hover {
   color: #495057;
-  border-color: #9172c279 !important;
-  box-shadow: 0 0 0 0.2rem #9172c279 !important;
+  border-color: #9072c2 !important;
+  box-shadow: none !important;
   outline: 0;
 }
 .font_s{
