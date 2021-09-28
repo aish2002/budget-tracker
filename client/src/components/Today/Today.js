@@ -23,9 +23,9 @@ const Today = () => {
   };
   return (
     <Col >
-      <h1 className="mb-4 ">
+      <h2 className="mb-4 ">
         Today
-      </h1>
+      </h2>
       <CardGroup className="text-center">
         <Card>
           <Card.Body>

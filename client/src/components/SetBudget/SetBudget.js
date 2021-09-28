@@ -34,7 +34,7 @@ function SetBudget() {
   };
   return (
     <>
-        <h1 className=" my-5 mx-2 text-center ">Set Your Budget for this Month </h1>
+        <h2 className=" my-5 mx-2 text-center ">Set Your Budget for this Month </h2>
      
       <div className='d-flex justify-content-center'>
       <Form className="mt-5 mx-3 setform"  onSubmit={handleSetBudget}>

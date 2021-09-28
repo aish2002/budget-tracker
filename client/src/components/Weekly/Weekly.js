@@ -39,7 +39,7 @@ const Weekly = () => {
   return (
     <div>
       <div className="d-flex justify-content-between">
-        <Col><h1>This Week</h1></Col>
+        <Col><h2>This Week</h2></Col>
         <Col>
         <Form.Control as="select" onChange={(e) => setCategory(e.target.value)}>
             <option value=''>All</option>

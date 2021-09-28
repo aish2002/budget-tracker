@@ -40,12 +40,12 @@ const Header = () => {
 
     return ( 
         <Col >
-            <h1 className="d-flex justify-content-between">
+            <h2 className="d-flex justify-content-between">
                 <span>Dashboard</span>
                 <span >
                     <Add onClick={() => setShow(!show)}/>
                 </span>
-            </h1>
+            </h2>
             <Container className="mx-auto w-75 w-responsive my-3">
             {show && <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="Category">

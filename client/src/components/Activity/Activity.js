@@ -17,8 +17,8 @@ const Activity = () => {
   const formatTime = (time) => moment(time).format(`D MMM' YY, HH:mm A`);
 
   return (
-    <Col className="mt-3 ">
-      <h1 className="mb-4">Activity</h1>
+    <Col >
+      <h2 className="mb-4">Activity</h2>
       <div className="d-flex justify-content-between my-3">
         <h5>
           Filters:{" "}

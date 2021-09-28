@@ -1,14 +1,19 @@
 import React from "react";
-import { Navbar,Nav} from "react-bootstrap";
+import { Navbar,Nav,NavbarBrand} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Leftbar.css";
 
 const Leftbar = () => {  
   return (
     <Navbar collapseOnSelect className="p-0 m-0" expand="md" sticky="top">
+      
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
+        
         <Nav className="flex-column min-vh-100 sidebar ">
+          <Nav.Item className="mb-3">
+          <h2 style={{color: "#fff"}}>MoneyFlow</h2>
+          </Nav.Item>
           <Nav.Item>
             <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
           </Nav.Item>
