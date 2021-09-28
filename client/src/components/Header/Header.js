@@ -46,6 +46,11 @@ const Header = () => {
                 </span>
             </h1>
             {show && <Form onSubmit={handleSubmit}>
+                <Form.Group controlId="Category">
+                    <Form.Control as="select" name="category" onChange={handleChange} required>
+                        {CATEGORIES.map(category => <option key={category}>{category}</option>)}
+                    </Form.Control>
+                </Form.Group>
                 <Form.Group>
                     <Form.Control placeholder="topic" name="topic" value={expense.topic} onChange={handleChange} required/>
                 </Form.Group>
@@ -63,11 +68,7 @@ const Header = () => {
                     <Button variant={expense.status === '+' ? 'success' : 'secondary'} name="status" value="+" onClick={handleChange}>+</Button>
                     </InputGroup.Append>
                 </InputGroup>
-                <Form.Group controlId="Category">
-                    <Form.Control as="select" name="category" onChange={handleChange} required>
-                        {CATEGORIES.map(category => <option key={category}>{category}</option>)}
-                    </Form.Control>
-                </Form.Group>
+                
                 <Col className="my-3">
                     <Button type="submit" block>Add</Button>
                 </Col>

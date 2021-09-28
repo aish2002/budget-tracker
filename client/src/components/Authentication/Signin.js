@@ -5,7 +5,6 @@ import {
   Button,
   Col,
   Navbar,
-  NavbarBrand,
   Image,
 } from "react-bootstrap";
 import axios from "axios";

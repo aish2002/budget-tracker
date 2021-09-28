@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, Col, Button, Container, CardGroup } from "react-bootstrap";
 import DonutChart from "react-donut-chart";
-import { useUser } from "../../hooks/useUser";
 import { useBudget } from "../../hooks/budget";
 import { useActivity } from "../../hooks/useActivity";
 
@@ -14,7 +13,6 @@ const Rightbar = () => {
     "#b3f0ff",
     "#ffccb3",
   ];
-  const user = useUser();
   const budget = useBudget();
   const { calcExpense,topCategories } = useActivity();
   const { expense } = calcExpense("", "month");

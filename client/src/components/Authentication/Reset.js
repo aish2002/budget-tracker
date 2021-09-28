@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Form, Button, Col , Navbar, NavbarBrand,Image} from "react-bootstrap";
+import { Row, Form, Button, Col , Navbar, Image} from "react-bootstrap";
 import axios from "axios";
 import './Authentication.css'
 import {ReactComponent as Money} from "../../assets/money.svg";
