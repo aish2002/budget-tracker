@@ -9,7 +9,7 @@
     "client": "cd client && npm run start",
     "iserver": "npm install",
     "iclient": "cd client && npm install",
-    "build": "cd client && npm install && npm run build",
+    "build": "babel ./src --out-dir ./dist/ && cd client && npm install && npm run build",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "iall": "concurrently \"npm run iserver\" \"npm run iclient\""
   },
