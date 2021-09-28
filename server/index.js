@@ -1,17 +1,18 @@
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 dotenv.config();
-import path from 'path';
-import express from 'express';
-import { loginuser,registeruser,reset, userdetails } from './controllers/user';
-//import { verifyToken } from './middleware/auth';
-import {connect} from './config/database';
-import { addactivity, getactivity } from './controllers/activity';
-import {setbudget,getbudget} from './controllers/budget';
-import session from 'express-session';
+const path = require('path');
+const express = require('express');
+const { loginuser,registeruser,reset, userdetails } = require('./controllers/user.js');
+//const { verifyToken } require('./middleware/auth';
+const { connect } = require('./config/database.js');
+const { addactivity, getactivity } = require('./controllers/activity.js');
+const {setbudget,getbudget} = require('./controllers/budget.js');
+const session = require('express-session');
 
 connect();
 const app = express();
 //for serversiderendering
+console.log(__dirname)
 app.use(express.static(path.resolve(__dirname,'../client/build')))
 app.use(express.json())
 app.use(session({

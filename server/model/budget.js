@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const budgetSchema = new mongoose.Schema({
   userid: String,
@@ -7,5 +7,6 @@ const budgetSchema = new mongoose.Schema({
   budget : Number,
   
 });
-
-export const Budget =  mongoose.model('budgets',budgetSchema);
+ 
+const Budget =  mongoose.model('budgets',budgetSchema);
+module.exports = {Budget}

@@ -1,8 +1,8 @@
-import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
 dotenv.config();
 
-export const verifyToken = (req,res,next) => {
+const verifyToken = (req,res,next) => {
     const token = req.body.token || req.query.token || req.headers["x-access-token"];
     if(!token){
         res.status(403).send('Token needed for authorization')
@@ -16,3 +16,5 @@ export const verifyToken = (req,res,next) => {
         }
     }
 }
+
+module.exports = {verifyToken}
