@@ -37,3 +37,12 @@ export const OPTIONS = {
     },
   },
 };
+
+export const DONUTCOLOR = [
+  "#ff0000",
+  "#005266",
+  "#993300",
+  "#ffe6f9",
+  "#b3f0ff",
+  "#ffccb3",
+];

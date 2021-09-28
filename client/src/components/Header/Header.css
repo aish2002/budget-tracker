@@ -1,0 +1,6 @@
+.add-btn{
+    min-width: 200px !important;
+}
+.form-control:focus{
+    box-shadow: none !important;
+}

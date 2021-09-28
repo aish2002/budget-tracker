@@ -1,7 +1,6 @@
 import { Row, Col } from "react-bootstrap";
 import { React} from "react";
 import Leftbar from "./Leftbar/Leftbar";
-import Rightbar from "./Rightbar/Rightbar";
 import { Route, Switch } from "react-router-dom";
 import SetBudget from "./SetBudget/SetBudget";
 import Header from "./Header/Header";
@@ -30,13 +29,8 @@ const Dashboard = () => {
               <Route path="/dashboard/setup" component={SetBudget} /> 
               <Route path="/dashboard/activity" component={Activity} /> 
             </Switch>
-          
         </Col>
-        <div>
-          <Route exact path="/dashboard" component={Rightbar} />
-        </div>
       </Row>
-     
     </div>
   );
 }
