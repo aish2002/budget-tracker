@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 //app.use(cors());
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+// app.use(express.static(path.resolve(__dirname, '../client/build')));
 // if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
 //     app.use(express.static(path.resolve(__dirname, '../client/build')));
 // };
