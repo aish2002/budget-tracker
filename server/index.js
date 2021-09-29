@@ -8,6 +8,7 @@ const { connect } = require('./config/database.js');
 const { addactivity, getactivity } = require('./controllers/activity.js');
 const {setbudget,getbudget} = require('./controllers/budget.js');
 const session = require('express-session');
+const bodyParser = require('body-parser')
 
 connect();
 const app = express();
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 //app.use(cors());
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
     app.use(express.static(path.resolve(__dirname, '../client/build')));
 };
