@@ -19,7 +19,7 @@ const SignUp = () => {
     if (user.password === user.repassword) {
       setMsg(null)
       axios
-        .post("/api/register", user)
+        .post(process.env.REACT_APP_API +"/register", user)
         .then((res) => {
           if(res.status === 200){
             setMsg(res.data)

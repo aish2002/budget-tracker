@@ -5,13 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "server": "node --experimental-modules --es-module-specifier-resolution=node server/index.js --ignore client",
-    "client": "cd client && npm run start",
-    "iserver": "npm install",
-    "iclient": "cd client && npm install",
-    "build": "cd client && npm install && npm run build",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "iall": "concurrently \"npm run iserver\" \"npm run iclient\""
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",

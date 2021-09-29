@@ -25,7 +25,7 @@ const Signin = () => {
   const handleSignIn = (e) => {
     e.preventDefault();
     axios
-      .post("/api/login", credentials)
+      .post(process.env.REACT_APP_API +"/login", credentials)
       .then((res) => {
         if (res.status === 201) {
           history.push("/dashboard");

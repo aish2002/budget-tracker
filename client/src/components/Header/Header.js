@@ -20,7 +20,7 @@ const Header = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        axios.post('/api/addactivity',{
+        axios.post(process.env.REACT_APP_API +'/addactivity',{
             user,expense
         }).then(setExpense({
             topic: '',
