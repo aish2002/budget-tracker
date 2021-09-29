@@ -4,6 +4,7 @@
   "description": "web app to track your expenses",
   "main": "index.js",
   "scripts": {
+    "start": "node server/index.js",
     "server": "node server/index.js",
     "client": "cd client && npm run start",
     "iserver": "npm install",
