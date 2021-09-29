@@ -9,7 +9,7 @@ export const useUser = () => {
   });
 
   useEffect(() => {
-    axios.get("/api/user").then((res) => {
+    axios.get(process.env.REACT_APP_API + "/user").then((res) => {
       setUser(res.data)
     });
   }, []);
