@@ -26,7 +26,7 @@ function SetBudget() {
   const handleSetBudget = (e) => {
     e.preventDefault();
     axios
-      .post("/api/setbudget", budgets)
+      .post(process.env.REACT_APP_API + "/setbudget", budgets)
       .then((res) => {
         setMessage(res.data);
       })

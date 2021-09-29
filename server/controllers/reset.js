@@ -1,7 +1,7 @@
-import {User} from '../model/user';
-import bcrypt from 'bcryptjs';
+const { User } = require("../model/user.js");
+const bcrypt = require('bcryptjs');
 
-export const reset = async (req,res) => {
+const reset = async (req,res) => {
     try{
         const {email,password,repassword} = req.body;
         const user = await User.findOne({email}).exec();
@@ -16,6 +16,7 @@ export const reset = async (req,res) => {
         }
     }catch(err){
         console.log(err)
-    }
-    
+    }    
 }
+
+module.exports = {reset}
