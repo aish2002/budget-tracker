@@ -9,7 +9,9 @@
   },
   "scripts": {
     "server": "node server/index.js",
-    "client": "cd .. && cd client && npm run start"
+    "client": "cd .. && cd client && npm run start",
+    "build": "babel . -d ./dist",
+    "start": "node ./dist"
   },
   "repository": {
     "type": "git",
@@ -28,7 +30,9 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.0.6",
-    "nodemon": "^2.0.12"
+    "mongoose": "^6.0.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }

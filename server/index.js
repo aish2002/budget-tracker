@@ -19,9 +19,9 @@ app.use(bodyParser.urlencoded({
 }));
 //app.use(cors());
 app.use(express.static(path.resolve(__dirname, '../client/build')));
-if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
-    app.use(express.static(path.resolve(__dirname, '../client/build')));
-};
+// if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
+//     app.use(express.static(path.resolve(__dirname, '../client/build')));
+// };
 
 app.use(express.json())
 app.use(session({
@@ -47,5 +47,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`BACK_END_SERVICE_PORT: ${PORT}`));
 
 //for production
-app.get('*',(req,res) => 
-    res.sendFile(path.resolve(__dirname,'../client/build','index.html')))
+// app.get('*',(req,res) => 
+//     res.sendFile(path.resolve(__dirname,'../client/build','index.html')))
