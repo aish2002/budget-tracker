@@ -11,18 +11,27 @@ const session = require('express-session');
 
 connect();
 const app = express();
-//for serversiderendering
-// console.log(__dirname)
-// app.use(express.static(path.resolve(__dirname,'../client/build')))
+
+app.use(express.static(path.resolve(__dirname,'../client/build')))
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+  res.header(
+    "Access-Control-Allow-Methods",
+    "Origin,X-Requested-With,Content-Type,Accept,content-type"
+  );
+  next();
+});
+
 app.use(express.json())
 app.use(session({
   secret: 'sfjsk,akqklqkqkel',
   saveUninitialized: true,
   resave: true
 }))
-app.get('/api',(req,res) => {
-    res.status(200).send('API up');
-})
+
+
 
 app.post('/api/login',loginuser);
 app.post('/api/register',registeruser);
@@ -41,8 +50,3 @@ app.listen(PORT, (err) => {
       return;
     }
 });
-
-//for production
-// app.get('*',(req,res) => 
-//     res.sendFile(path.resolve(__dirname,'../client/build','index.html'))
-// )
