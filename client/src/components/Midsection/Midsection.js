@@ -70,7 +70,7 @@ const Midsection = () => {
             </Card.Body>
           </Card>
         </Card>
-        </CardDeck>
+      </CardDeck>
       
       <Row className="my-4">
         <Col>

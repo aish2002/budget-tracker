@@ -1,6 +1,6 @@
-import { User } from "../model/user";
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+const { User } = require("../model/user.js");
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const getToken = (user,email) => jwt.sign(
     {user: user._id,email},
@@ -10,7 +10,7 @@ const getToken = (user,email) => jwt.sign(
     }
 )
 
-export const userdetails = (req,res) => {
+const userdetails = (req,res) => {
     if(req.session.isAuthorized)
         res.status(200).send({
             isAuthorized: req.session.isAuthorized,
@@ -25,7 +25,7 @@ export const userdetails = (req,res) => {
         })
 }
 
-export const loginuser = async (req,res) => {
+const loginuser = async (req,res) => {
     try{
         const {email,password} = req.body;
         const user = await User.findOne({email}).exec();
@@ -43,7 +43,7 @@ export const loginuser = async (req,res) => {
     }
 }
 
-export const registeruser = async (req,res) => {
+const registeruser = async (req,res) => {
     try{
         const {name,email,password,repassword} = req.body;
         const olduser = await User.findOne({email}).exec();
@@ -67,7 +67,7 @@ export const registeruser = async (req,res) => {
     }
 }
 
-export const reset = async (req,res) => {
+const reset = async (req,res) => {
     try{
         const {email,password,repassword} = req.body;
         const user = await User.findOne({email}).exec();
@@ -84,3 +84,5 @@ export const reset = async (req,res) => {
         console.log(err)
     }
 }
+
+module.exports = {userdetails,loginuser,reset,registeruser};

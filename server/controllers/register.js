@@ -1,8 +1,8 @@
-import { User } from "../model/user";
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken'
+const { User } = require("../model/user.js");
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-export const register = async (req,res) => {
+const register = async (req,res) => {
     try{
         const {name,email,password,repassword} = req.body;
         const olduser = await User.findOne({email}).exec();
@@ -30,3 +30,5 @@ export const register = async (req,res) => {
         console.log('err ->',err);
     }
 }
+
+module.exports = { register };
