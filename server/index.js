@@ -12,8 +12,8 @@ const session = require('express-session');
 connect();
 const app = express();
 //for serversiderendering
-console.log(__dirname)
-app.use(express.static(path.resolve(__dirname,'../client/build')))
+// console.log(__dirname)
+// app.use(express.static(path.resolve(__dirname,'../client/build')))
 app.use(express.json())
 app.use(session({
   secret: 'sfjsk,akqklqkqkel',
@@ -43,6 +43,6 @@ app.listen(PORT, (err) => {
 });
 
 //for production
-app.get('*',(req,res) => 
-    res.sendFile(path.resolve(__dirname,'../client/build','index.html'))
-)
+// app.get('*',(req,res) => 
+//     res.sendFile(path.resolve(__dirname,'../client/build','index.html'))
+// )
