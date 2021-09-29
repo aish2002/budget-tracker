@@ -3,15 +3,13 @@
   "version": "1.0.0",
   "description": "web app to track your expenses",
   "main": "index.js",
+  "engines": {
+    "node": "14.16.1",
+    "npm": "6.14.12"
+  },
   "scripts": {
-    "start": "node server/index.js",
     "server": "node server/index.js",
-    "client": "cd client && npm run start",
-    "iserver": "npm install",
-    "iclient": "cd client && npm install",
-    "build": "babel ./src --out-dir ./dist/ && cd client && npm install && npm run build",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "iall": "concurrently \"npm run iserver\" \"npm run iclient\""
+    "client": "cd .. && cd client && npm run start"
   },
   "repository": {
     "type": "git",
@@ -24,7 +22,6 @@
   },
   "homepage": "https://github.com/aish2002/budget-tracker#readme",
   "dependencies": {
-    "babel": "^6.23.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "dotenv": "^10.0.0",
@@ -32,7 +29,6 @@
     "express-session": "^1.17.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.6",
-    "nodemon": "^2.0.12",
-    "react-router-dom": "^5.3.0"
+    "nodemon": "^2.0.12"
   }
 }
