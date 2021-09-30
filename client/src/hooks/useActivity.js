@@ -98,7 +98,7 @@ export const useActivity = () => {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_API + "/getactivity", {
+      .get("/api/getactivity", {
         params: {
           user,
         },
