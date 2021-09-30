@@ -8,10 +8,15 @@ const { connect } = require('./config/database.js');
 const { addactivity, getactivity } = require('./controllers/activity.js');
 const {setbudget,getbudget} = require('./controllers/budget.js');
 const session = require('express-session');
+var cors = require('cors')
 
 connect();
 const app = express();
-
+app.use(cors({
+    origin: process.env.ORIGIN,
+    optionsSuccessStatus:200,
+    credentials:true
+}))
 app.use(express.static(path.resolve(__dirname,'../client/build')))
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Headers", "*");
