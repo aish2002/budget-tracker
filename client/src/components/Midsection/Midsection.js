@@ -36,7 +36,7 @@ const Midsection = () => {
     <Col>
       
         <CardDeck>
-        <Card className="border-0 p-0 mr-0">
+        <Card className="border-0 p-0 mr-0 cardsec">
           <Card className="text-center my-2">
             <Card.Body className="d-flex flex-column justify-content-center">
               <Card.Text>INCOME</Card.Text>
@@ -50,7 +50,7 @@ const Midsection = () => {
             </Card.Body>
           </Card>
         </Card>
-        <Card className="border-0 p-0 ml-0">
+        <Card className="border-0 p-0 ml-0 cardsec">
           <Card className="midcard text-center my-1">
             <Card.Body className="py-3">
               <div>TOTAL EXPENSES</div>
