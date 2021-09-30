@@ -8,27 +8,32 @@ const { connect } = require('./config/database.js');
 const { addactivity, getactivity } = require('./controllers/activity.js');
 const {setbudget,getbudget} = require('./controllers/budget.js');
 const session = require('express-session');
-var cors = require('cors')
+const cors = require('cors')
 
 connect();
 const app = express();
-app.use(cors({
-    origin: process.env.ORIGIN,
-    optionsSuccessStatus:200,
-    credentials:true
-}))
+// app.use(cors({
+//     origin: process.env.ORIGIN,
+//     optionsSuccessStatus:200,
+//     // credentials:true
+// }))
+app.use(cors());
 app.use(express.static(path.resolve(__dirname,'../client/build')))
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Headers", "*");
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "Origin,X-Requested-With,Content-Type,Accept,content-type"
-  );
-  next();
-});
-
+// app.use(function (req, res, next) {
+//   res.set('Access-Control-Allow-Origin', '*');
+//   res.header("Access-Control-Allow-Headers", "*");
+//   res.header("Access-Control-Allow-Credentials", true);
+//   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+//   res.header(
+//     "Access-Control-Allow-Methods",
+//     "Origin,X-Requested-With,Content-Type,Accept,content-type"
+//   );
+//   next();
+//   res.status(204).send('');
+// });
+app.get("*", function (request, response) {
+    response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+  });
 app.use(express.json())
 app.use(session({
   secret: 'sfjsk,akqklqkqkel',

@@ -4,8 +4,13 @@
   "description": "web app to track your expenses",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "client": "cd client && npm run start"
+    "client": "cd client && npm run start",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "server": "nodemon server/index.js",
+    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
   },
   "repository": {
     "type": "git",
