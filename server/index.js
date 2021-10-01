@@ -12,25 +12,9 @@ const cors = require('cors')
 
 connect();
 const app = express();
-// app.use(cors({
-//     origin: process.env.ORIGIN,
-//     optionsSuccessStatus:200,
-//     // credentials:true
-// }))
+
 app.use(cors());
 app.use(express.static(path.resolve(__dirname,'../client/build')))
-// app.use(function (req, res, next) {
-//   res.set('Access-Control-Allow-Origin', '*');
-//   res.header("Access-Control-Allow-Headers", "*");
-//   res.header("Access-Control-Allow-Credentials", true);
-//   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
-//   res.header(
-//     "Access-Control-Allow-Methods",
-//     "Origin,X-Requested-With,Content-Type,Accept,content-type"
-//   );
-//   next();
-//   res.status(204).send('');
-// });
 
 app.use(express.json())
 app.use(session({
@@ -38,7 +22,6 @@ app.use(session({
   saveUninitialized: true,
   resave: true
 }))
-
 
 
 app.post('/api/login',loginuser);
