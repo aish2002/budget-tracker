@@ -1,6 +1,9 @@
 # MoneyFlow
 A simple MERN Stack web application to keep track of your expenses. 
 
+## Hosted Page Link
+[https://money-flow-budget-tracker.herokuapp.com]( https://money-flow-budget-tracker.herokuapp.com/) 
+
 ## How it works
 - Go to [MoneyFlow Website]( https://money-flow-budget-tracker.herokuapp.com/) 
 - Create an Account using your email-id and password.
@@ -27,4 +30,4 @@ A simple MERN Stack web application to keep track of your expenses.
 2. [Elsa Maria Joseph](https://github.com/Lza-etc)
 3. [Aishwarya A J](https://github.com/aish2002)
 
-
+*Do star the repo if you find it useful*
