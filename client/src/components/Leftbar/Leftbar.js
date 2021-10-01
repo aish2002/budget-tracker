@@ -1,14 +1,15 @@
-import React from "react";
+import React,{useState} from "react";
 import { Navbar,Nav} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Leftbar.css";
 
 const Leftbar = () => {  
+  const [expanded,setExpanded]= useState(false)
   return (
-    <Navbar collapseOnSelect className="p-0 m-0" expand="md" sticky="top">
+    <Navbar collapseOnSelect className="p-0 m-0" expand="md" sticky="top" expanded={expanded}>
       
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
+      <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav" onClick={() => setExpanded(false)}>
         
         <Nav className="flex-column min-vh-100 sidebar ">
           <Nav.Item className="mb-3">

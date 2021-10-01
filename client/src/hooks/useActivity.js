@@ -29,8 +29,10 @@ export const useActivity = () => {
         moment(time,"YYYY-MM-DD").format("DD-MM-YYYY") ===
         moment(element.createdAt).format("DD-MM-YYYY")
     );
-    
-    return filteredactivity;
+    const reversedActivity=[...filteredactivity,filteredactivity.reverse()]
+    console.log((reversedActivity))
+
+    return reversedActivity;
   }
 
   const calcExpense=(category,time)=>{
@@ -68,13 +70,12 @@ export const useActivity = () => {
   }
 
     const getWeekSummary = (category) => {
-      const day = parseInt(moment().clone().format('D'))
       const summary = [];
-      const suffix =  moment().format('YYYY-MM-');
       for(let i= 6; i >= 0 ;i--){
-        const {expense,income} = calcExpense(category,suffix+(day - i))
+        const date =  moment().subtract(i,"days").format('YYYY-MM-DD');
+        const {expense,income} = calcExpense(category,date);
         summary.push({
-          day: suffix + (day - i),
+          day: date,
           expense: expense,
           income: income
         })

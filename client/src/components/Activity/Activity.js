@@ -13,7 +13,6 @@ const Activity = () => {
   const [category, setCategory] = useState('');
   const [date, setDate] = useState('')
   const activity = filterActivity(category,date);
-
   const formatTime = (time) => moment(time).format(`D MMM' YY, HH:mm A`);
 
   return (
@@ -50,14 +49,14 @@ const Activity = () => {
         <span>
           <Row className="justify-content-center mt-5 pt-5">
             <Sad />
-          </Row>
+          </Row> 
           <Col className="text-center">
             <h5>There is no activity found.</h5>
           </Col>
         </span>
       ) : (
         activity.map((activity) => (
-          <Card key={activity._id} className="mb-2">
+          activity.topic &&(<Card key={activity._id} className="mb-2">
             <Card.Body className="px-3 py-2">
               <Card.Title className="d-flex justify-content-between">
                 <span>{activity.topic}</span>
@@ -69,7 +68,7 @@ const Activity = () => {
                 {formatTime(activity.createdAt)}
               </Card.Subtitle>
             </Card.Body>
-          </Card>
+          </Card>)
         ))
       )}
     </Col>

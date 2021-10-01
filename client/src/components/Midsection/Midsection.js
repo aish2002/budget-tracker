@@ -108,7 +108,7 @@ const Midsection = () => {
         <Col>
           <h5 className="mb-4">Most Spent Categories</h5>
           {expenses.map((exp, index) => (
-            <Card key={index} className="my-3">
+             <Card key={index} className="my-3">
               <Card.Body className="p-3 d-flex justify-content-between">
                 <DonutChart
                   data={[
@@ -136,8 +136,8 @@ const Midsection = () => {
                   {`${((exp.expense / expense) * 100).toFixed(2)}%`}{" "}
                 </div>
               </Card.Body>
-            </Card>
-          ))}
+            </Card>)
+          )}
         </Col>
       </Row>
     </Col>
