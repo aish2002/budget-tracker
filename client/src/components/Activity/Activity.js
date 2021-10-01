@@ -13,13 +13,12 @@ const Activity = () => {
   const [category, setCategory] = useState('');
   const [date, setDate] = useState('')
   const activity = filterActivity(category,date);
-
   const formatTime = (time) => moment(time).format(`D MMM' YY, HH:mm A`);
 
   return (
     <Col >
       <h2 className="mb-4">Activity</h2>
-      <div className="d-flex justify-content-between my-3">
+      <div className="d-sm-flex justify-content-between my-3">
         <h5>
           Filters:{" "}
           {category.length > 0 && <Badge variant="primary" className="p-2">
@@ -29,7 +28,7 @@ const Activity = () => {
             {moment(date).format('DD MMM YYYY')} <span onClick={() => setDate('')} className="close">&#215;</span>
           </Badge>}
         </h5>
-        <div className="d-flex ">
+        <div className="d-flex justify-content-end ">
           <DropdownButton
             menuAlign="right"
             title="Category"
@@ -50,14 +49,14 @@ const Activity = () => {
         <span>
           <Row className="justify-content-center mt-5 pt-5">
             <Sad />
-          </Row>
+          </Row> 
           <Col className="text-center">
             <h5>There is no activity found.</h5>
           </Col>
         </span>
       ) : (
         activity.map((activity) => (
-          <Card key={activity._id} className="mb-2">
+          activity.topic &&(<Card key={activity._id} className="mb-2">
             <Card.Body className="px-3 py-2">
               <Card.Title className="d-flex justify-content-between">
                 <span>{activity.topic}</span>
@@ -69,7 +68,7 @@ const Activity = () => {
                 {formatTime(activity.createdAt)}
               </Card.Subtitle>
             </Card.Body>
-          </Card>
+          </Card>)
         ))
       )}
     </Col>

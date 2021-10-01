@@ -20,14 +20,16 @@ const Header = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        axios.post(process.env.REACT_APP_API +'/addactivity',{
+        axios.post('/api/addactivity',{
             user,expense
-        }).then(setExpense({
+        }).then((res)=>{
+            setExpense({
             topic: '',
             amount: 0,
             status: '-',
-            category: ''
-        })).catch(err => console.log(err))
+            category: 'Transport'
+        })
+        window.location.reload()}).catch(err => console.log(err))
     }
 
     const handleChange = (e) => {

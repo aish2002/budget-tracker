@@ -16,7 +16,7 @@ const Reset = () => {
     e.preventDefault();
     if (user.password === user.repassword) {
       axios
-        .post(process.env.REACT_APP_API +"/reset", user)
+        .post("/api/reset", user)
         .then((res) => {
           if(res.status === 201){
             console.log('resetted');

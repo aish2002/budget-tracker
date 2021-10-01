@@ -15,9 +15,10 @@ import { DONUTCOLOR } from "../../util";
 const Midsection = () => {
   const budget = useBudget();
   const { calcExpense, topCategories } = useActivity();
+
   const { expense, income } = calcExpense("", "month");
   const expenses = topCategories("month");
-
+  //console.log(expenses)
   const savings = budget.income + income - expense;
   const color =
     savings > budget.savings
@@ -36,7 +37,7 @@ const Midsection = () => {
     <Col>
       
         <CardDeck>
-        <Card className="border-0 p-0 mr-0">
+        <Card className="border-0 p-0 mr-0 cardsec">
           <Card className="text-center my-2">
             <Card.Body className="d-flex flex-column justify-content-center">
               <Card.Text>INCOME</Card.Text>
@@ -50,7 +51,7 @@ const Midsection = () => {
             </Card.Body>
           </Card>
         </Card>
-        <Card className="border-0 p-0 ml-0">
+        <Card className="border-0 p-0 ml-0 cardsec">
           <Card className="midcard text-center my-1">
             <Card.Body className="py-3">
               <div>TOTAL EXPENSES</div>
@@ -108,7 +109,7 @@ const Midsection = () => {
         <Col>
           <h5 className="mb-4">Most Spent Categories</h5>
           {expenses.map((exp, index) => (
-            <Card key={index} className="my-3">
+             <Card key={index} className="my-3">
               <Card.Body className="p-3 d-flex justify-content-between">
                 <DonutChart
                   data={[
@@ -133,11 +134,11 @@ const Midsection = () => {
                   <h6>{exp.expense}</h6>
                 </Col>
                 <div className="mt-3">
-                  {`${((exp.expense / expense) * 100).toFixed(2)}%`}{" "}
+                  {expense === 0 ? '0%' : `${((exp.expense / expense) * 100).toFixed(2)}%`}
                 </div>
               </Card.Body>
-            </Card>
-          ))}
+            </Card>)
+          )}
         </Col>
       </Row>
     </Col>

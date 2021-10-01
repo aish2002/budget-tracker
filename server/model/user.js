@@ -8,4 +8,4 @@ const userSchema = new mongoose.Schema({
 });
 
 const User =  mongoose.model('users',userSchema);
-exports.module = { User }
+module.exports = { User }

@@ -37,3 +37,12 @@ a {
   font-size: 2.5rem !important;
   font-family:cursive;
 }
+
+.navbar{
+  background-color: #9072c2 !important;
+}
+@media (max-width:646px){
+  .dash-left{
+      width:100% !important;
+  }
+}

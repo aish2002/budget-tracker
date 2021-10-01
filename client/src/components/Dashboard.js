@@ -14,7 +14,7 @@ const Dashboard = () => {
   return (
     <div>
       <Row className="mr-3">
-        <div  className="pr-0">
+        <div  className="pr-0 dash-left">
           <Leftbar />
         </div>
         <Col className="my-4">

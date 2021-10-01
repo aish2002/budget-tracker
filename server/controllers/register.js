@@ -31,4 +31,4 @@ const register = async (req,res) => {
     }
 }
 
-exports.module = { register };
+module.exports = { register };

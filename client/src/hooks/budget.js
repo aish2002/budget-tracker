@@ -14,7 +14,7 @@ export const useBudget=()=>{
       useEffect(() => {
         function getBudget() {
           axios
-            .get(process.env.REACT_APP_API + "/getbudget", {
+            .get("/api/getbudget", {
               params: {
                 id: user.id,
               },
