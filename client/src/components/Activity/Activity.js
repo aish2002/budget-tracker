@@ -18,7 +18,7 @@ const Activity = () => {
   return (
     <Col >
       <h2 className="mb-4">Activity</h2>
-      <div className="d-flex justify-content-between my-3">
+      <div className="d-sm-flex justify-content-between my-3">
         <h5>
           Filters:{" "}
           {category.length > 0 && <Badge variant="primary" className="p-2">
@@ -28,7 +28,7 @@ const Activity = () => {
             {moment(date).format('DD MMM YYYY')} <span onClick={() => setDate('')} className="close">&#215;</span>
           </Badge>}
         </h5>
-        <div className="d-flex ">
+        <div className="d-flex justify-content-end ">
           <DropdownButton
             menuAlign="right"
             title="Category"
