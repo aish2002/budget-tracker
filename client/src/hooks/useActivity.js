@@ -29,7 +29,7 @@ export const useActivity = () => {
         moment(time,"YYYY-MM-DD").format("DD-MM-YYYY") ===
         moment(element.createdAt).format("DD-MM-YYYY")
     );
-    const reversedActivity=[...filteredactivity,filteredactivity.reverse()]
+    const reversedActivity=[...filteredactivity].reverse()
     console.log((reversedActivity))
 
     return reversedActivity;

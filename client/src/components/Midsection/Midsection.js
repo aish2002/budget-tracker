@@ -15,9 +15,10 @@ import { DONUTCOLOR } from "../../util";
 const Midsection = () => {
   const budget = useBudget();
   const { calcExpense, topCategories } = useActivity();
+
   const { expense, income } = calcExpense("", "month");
   const expenses = topCategories("month");
-
+  //console.log(expenses)
   const savings = budget.income + income - expense;
   const color =
     savings > budget.savings
@@ -133,7 +134,7 @@ const Midsection = () => {
                   <h6>{exp.expense}</h6>
                 </Col>
                 <div className="mt-3">
-                  {`${((exp.expense / expense) * 100).toFixed(2)}%`}{" "}
+                  {expense === 0 ? '0%' : `${((exp.expense / expense) * 100).toFixed(2)}%`}
                 </div>
               </Card.Body>
             </Card>)
