@@ -25,7 +25,7 @@ const SignUp = () => {
             setMsg(res.data)
           }else{
             console.log(res.data);
-            window.location = '/dashboard';
+            window.location = '/dashboard/setup';
           }
         })
         .catch((err) => console.log(err));
