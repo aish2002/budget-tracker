@@ -6,7 +6,7 @@ import "./Leftbar.css";
 const Leftbar = () => {  
   const [expanded,setExpanded]= useState(false)
   return (
-    <Navbar collapseOnSelect className="p-0 m-0" expand="md" sticky="top" expanded={expanded}>
+    <Navbar collapseOnSelect className="p-0 m-0 leftnavbar" expand="md" sticky="top" expanded={expanded}>
       
       <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav" onClick={() => setExpanded(false)}>
