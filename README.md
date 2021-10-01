@@ -17,6 +17,8 @@ A simple MERN Stack web application to keep track of your expenses.
 ### Download dependencies using the following command 
 
     npm install
+    cd client
+    npm install
 ### Run the project using 
     
     npm run start
