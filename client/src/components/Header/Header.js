@@ -20,7 +20,7 @@ const Header = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        axios.post('/api/addactivity',{
+        axios.post('https://budgetrack.onrender.com/api/addactivity',{
             user,expense
         }).then((res)=>{
             setExpense({

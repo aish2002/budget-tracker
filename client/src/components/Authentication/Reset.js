@@ -16,7 +16,7 @@ const Reset = () => {
     e.preventDefault();
     if (user.password === user.repassword) {
       axios
-        .post("/api/reset", user)
+        .post("https://budgetrack.onrender.com/api/reset", user)
         .then((res) => {
           if(res.status === 201){
             console.log('resetted');

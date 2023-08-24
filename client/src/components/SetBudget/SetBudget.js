@@ -26,7 +26,7 @@ function SetBudget() {
   const handleSetBudget = (e) => {
     e.preventDefault();
     axios
-      .post("/api/setbudget", budgets)
+      .post("https://budgetrack.onrender.com/api/setbudget", budgets)
       .then((res) => {
         setMessage(res.data);
       })

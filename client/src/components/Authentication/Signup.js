@@ -19,7 +19,7 @@ const SignUp = () => {
     if (user.password === user.repassword) {
       setMsg(null)
       axios
-        .post("/api/register", user)
+        .post("https://budgetrack.onrender.com/api/register", user)
         .then((res) => {
           if(res.status === 200){
             setMsg(res.data)
