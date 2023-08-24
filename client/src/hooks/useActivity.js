@@ -97,7 +97,7 @@ export const useActivity = () => {
 
   useEffect(() => {
     axios
-      .get("https://budgetrack.onrender.com/api/getactivity", {
+      .get("/api/getactivity", {
         params: {
           user,
         },

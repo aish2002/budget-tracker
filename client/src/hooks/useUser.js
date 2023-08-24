@@ -9,7 +9,7 @@ export const useUser = () => {
   });
 
   useEffect(() => {
-    axios.get("https://budgetrack.onrender.com/api/user").then((res) => {
+    axios.get("/api/user").then((res) => {
       setUser(res.data)
     });
   }, []);
