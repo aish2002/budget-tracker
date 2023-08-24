@@ -11,7 +11,6 @@ node_modules/
 # production
 /build
 
-
 # misc
 .DS_Store
 .env
@@ -20,7 +19,6 @@ node_modules/
 .env.test.local
 .env.production.local
 
-package-lock.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
